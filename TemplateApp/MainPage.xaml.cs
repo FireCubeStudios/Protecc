@@ -1,12 +1,19 @@
-﻿using System;
+﻿using CubeKit.UI.Services;
+using Protecc.Helpers;
+using Protecc.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Security.Credentials;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -18,7 +25,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace TemplateApp
+namespace Protecc
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -28,74 +35,30 @@ namespace TemplateApp
         public MainPage()
         {
             this.InitializeComponent();
-            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-            titleBar.ButtonBackgroundColor = Colors.Transparent;
-            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
-
-            // Hide default title bar.
-            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = true;
-            UpdateTitleBarLayout(coreTitleBar);
-
-            // Set XAML element as a draggable region.
-            Window.Current.SetTitleBar(AppTitleBar);
-
-            // Register a handler for when the size of the overlaid caption control changes.
-            // For example, when the app moves to a screen with a different DPI.
-            coreTitleBar.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
-
-            // Register a handler for when the title bar visibility changes.
-            // For example, when the title bar is invoked in full screen mode.
-            coreTitleBar.IsVisibleChanged += CoreTitleBar_IsVisibleChanged;
-
-            //Register a handler for when the window changes focus
-            Window.Current.Activated += Current_Activated;
+            WindowService.Initialize(AppTitleBar, AppTitle);
+            CredentialService.RefreshListAsync();
         }
 
-        #region Titlebar code
-        private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
+        private void EnterKey_Click(object sender, RoutedEventArgs e)
         {
-            UpdateTitleBarLayout(sender);
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(AddAccountPage), "");
         }
 
-        private void UpdateTitleBarLayout(CoreApplicationViewTitleBar coreTitleBar)
+        private void ScanQR_Click(object sender, RoutedEventArgs e)
         {
-            // Update title bar control size as needed to account for system size changes.
-            AppTitleBar.Height = coreTitleBar.Height;
-
-            // Ensure the custom title bar does not overlap window caption controls
-            Thickness currMargin = AppTitleBar.Margin;
-            AppTitleBar.Margin = new Thickness(currMargin.Left, currMargin.Top, coreTitleBar.SystemOverlayRightInset, currMargin.Bottom);
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(ScanQRPage), "");
         }
 
-        private void CoreTitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, object args)
+        //  For some reason when Selectionmode is None then the list item animations don't work.
+        //  This is a cursed workaround
+        private void AccountsView_SelectionChanged(object sender, SelectionChangedEventArgs e) => AccountsView.SelectedItem = null;
+
+        private async void AddButton_Loaded(object sender, RoutedEventArgs e)
         {
-            if (sender.IsVisible)
-            {
-                AppTitleBar.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                AppTitleBar.Visibility = Visibility.Collapsed;
-            }
+            await Task.Delay(500);
+            ((Button)sender).IsTabStop = true; //Cursed workaround for focus on startup bug
         }
-
-        // Update the TitleBar based on the inactive/active state of the app
-        private void Current_Activated(object sender, Windows.UI.Core.WindowActivatedEventArgs e)
-        {
-            SolidColorBrush defaultForegroundBrush = (SolidColorBrush)Application.Current.Resources["TextFillColorPrimaryBrush"];
-            SolidColorBrush inactiveForegroundBrush = (SolidColorBrush)Application.Current.Resources["TextFillColorDisabledBrush"];
-
-            if (e.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
-            {
-                AppTitle.Foreground = inactiveForegroundBrush;
-            }
-            else
-            {
-                AppTitle.Foreground = defaultForegroundBrush;
-            }
-        }
-        #endregion
     }
 }

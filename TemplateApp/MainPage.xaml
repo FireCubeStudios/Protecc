@@ -1,21 +1,28 @@
 ﻿<Page
-    x:Class="TemplateApp.MainPage"
+    x:Class="Protecc.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TemplateApp"
+    xmlns:local="using:Protecc"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
+    xmlns:icons="using:Fluent.Icons" 
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media" 
+    xmlns:controls="using:Protecc.Controls" 
+    xmlns:Helpers="using:Protecc.Helpers" 
+    xmlns:Classes="using:Protecc.Classes" 
+    xmlns:Services="using:Protecc.Services" xmlns:tbfx="using:TextBlockFX.Win2D.UWP" xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
-    <Grid Background="{ThemeResource LayerFillColorDefaultBrush}">
+    <Grid>
         <Border x:Name="AppTitleBar"
                 IsHitTestVisible="True"
                 VerticalAlignment="Top"
                 Background="Transparent"
                 Height="40"
                 Canvas.ZIndex="1" 
-                Margin="48,8,0,0">
+                Margin="12,0,0,0">
             <StackPanel Orientation="Horizontal">
                 <Image x:Name="AppFontIcon"
                     HorizontalAlignment="Left" 
@@ -24,11 +31,65 @@
                     Width="16" 
                     Height="16"/>
                 <TextBlock x:Name="AppTitle"
-                    Text="Test App Title"
+                    Text="Protecc"
                     VerticalAlignment="Center"
                     Margin="12, 0, 0, 0"
                     Style="{StaticResource CaptionTextBlockStyle}" />
             </StackPanel>
         </Border>
+        <Grid Padding="32, 48, 32, 48">
+            <Grid VerticalAlignment="Top">
+                <TextBlock FontSize="32" FontWeight="SemiBold">Your accounts</TextBlock>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Loaded="AddButton_Loaded" IsTabStop="False" IsEnabled="{x:Bind Helpers:UIHelper.CanAddNew(), Mode=OneWay}" Style="{ThemeResource ToolbarButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <icons:FluentSymbolIcon Symbol="Add20"/>
+                            <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Text="Add"/>
+                        </StackPanel>
+                        <Button.Flyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Scan QR" Click="ScanQR_Click"/>
+                                <MenuFlyoutItem Text="Enter Key" Click="EnterKey_Click"/>
+                            </MenuFlyout>
+                        </Button.Flyout>
+                    </Button>
+                    <AppBarSeparator/>
+                    <ToggleButton x:Name="PrivacyButton" Width="100" Style="{ThemeResource ExperimentalToolbarToggleButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <icons:FluentSymbolIcon Symbol="{x:Bind Helpers:UIHelper.PrivacyToIcon(PrivacyButton.IsChecked), Mode=OneWay}" Foreground="{ThemeResource HvidSortBrush}"/>
+                            <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Foreground="{ThemeResource HvidSortBrush}" Text="{x:Bind Helpers:UIHelper.PrivacyToText(PrivacyButton.IsChecked), Mode=OneWay}"/>
+                        </StackPanel>
+                    </ToggleButton>
+                    <AppBarSeparator/>
+                 <!--   <Button Style="{ThemeResource ToolbarButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <icons:FluentSymbolIcon Symbol="ArrowImport20"/>
+                            <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Text="Import"/>
+                        </StackPanel>
+                    </Button>
+                    <Button Style="{ThemeResource ToolbarButton}">
+                        <StackPanel Orientation="Horizontal">
+                            <icons:FluentSymbolIcon Symbol="FolderZip20"/>
+                            <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Text="Export"/>
+                        </StackPanel>
+                    </Button>-->
+                    <Button Style="{ThemeResource SettingsToolbarButton}"/>
+                </StackPanel>
+            </Grid>
+            <GridView x:Name="AccountsView" ItemContainerStyle="{ThemeResource CardContainer}" SelectionChanged="AccountsView_SelectionChanged" ItemsSource="{x:Bind Services:CredentialService.CredentialList, Mode=OneWay}" SelectionMode="Single" VerticalAlignment="Top" Margin="-8, 86, -50, 0" HorizontalAlignment="Left">
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="Classes:VaultItem">
+                        <controls:AccountControl AccountVaultItem="{x:Bind }"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </Grid>
+        <Grid x:Name="Filter" x:Load="{x:Bind Helpers:UIHelper.NullBoolToBool(PrivacyButton.IsChecked), Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 126, 0, 0" Canvas.ZIndex="4" Background="{ThemeResource MicaBrush}">
+            <Grid>
+                <Grid.Background>
+                    <media:BackdropBlurBrush Amount="240"/>
+                </Grid.Background>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

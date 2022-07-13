@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="Protecc.ErrorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Protecc"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+    xmlns:icons="using:Fluent.Icons"
+    mc:Ignorable="d"
+    Background="Black">
+    <Grid x:Name="Error">
+        <StackPanel VerticalAlignment="Center" Canvas.ZIndex="2" Margin="50, 50, 50, 200">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="72"
+                   Text="(╯"/>
+                <toolkit:DropShadowPanel Color="Red">
+                    <TextBlock Foreground="Red" FontSize="72"
+                   Text="°"/>
+                </toolkit:DropShadowPanel>
+                <TextBlock FontSize="72"
+                   Text="□"/>
+                <toolkit:DropShadowPanel Color="Red">
+                    <TextBlock Foreground="Red" FontSize="72"
+                   Text="°"/>
+                </toolkit:DropShadowPanel>
+                <TextBlock FontSize="72"
+                   Text="）╯︵ ┻━┻"/>
+            </StackPanel>
+            <TextBlock FontSize="48" FontWeight="SemiBold" TextWrapping="WrapWholeWords"
+                   Text="Protecc ran into an error." Margin="0, 20, 0, 20"/>
+            <TextBlock FontSize="40" x:Name="ExceptionText" TextWrapping="WrapWholeWords" 
+                  ScrollViewer.VerticalScrollBarVisibility="Auto" IsTextSelectionEnabled="True"/>
+            <Button Background="{ThemeResource LayerFillColorDefaultBrush}" Style="{ThemeResource ExperimentalToolbarButton}" Click="Home_Click" Margin="0, 12, 0, 0" >
+                <StackPanel Orientation="Horizontal">
+                    <icons:FluentSymbolIcon Symbol="Bug24" VerticalAlignment="Center" Margin="0, 0, 4, 0" Foreground="Red"/>
+                    <TextBlock VerticalAlignment="Center">Home</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <WebView  HorizontalAlignment="Stretch" DefaultBackgroundColor="Transparent" VerticalAlignment="Stretch" Source="ms-appx-web:///CubeKit.UI/Materials/Windows11Danger.html"/>
+    </Grid>
+
+</Page>

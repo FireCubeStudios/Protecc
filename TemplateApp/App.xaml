@@ -1,13 +1,13 @@
 ﻿<Application
-    x:Class="TemplateApp.App"
+    x:Class="Protecc.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:TemplateApp"
+    xmlns:local="using:Protecc"
     xmlns:controls="using:Microsoft.UI.Xaml.Controls">
     <Application.Resources>
         <controls:XamlControlsResources>
             <controls:XamlControlsResources.MergedDictionaries>
-                <!-- Other app resources here -->
+                <ResourceDictionary Source="ms-appx:///CubeKit.UI/Styles/GlowGradientUI.xaml"/>
             </controls:XamlControlsResources.MergedDictionaries>
         </controls:XamlControlsResources>
     </Application.Resources>

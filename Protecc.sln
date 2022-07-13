@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateApp", "TemplateApp\TemplateApp.csproj", "{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protecc", "TemplateApp\Protecc.csproj", "{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeKit.UI", "CubeKit.UI\CubeKit.UI.csproj", "{73936751-6325-49CE-8A7B-7006D6135B19}"
 EndProject
@@ -22,6 +22,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}.Debug|Any CPU.Build.0 = Debug|x86
+		{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}.Debug|ARM.ActiveCfg = Debug|ARM
 		{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}.Debug|ARM.Build.0 = Debug|ARM
 		{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}.Debug|ARM.Deploy.0 = Debug|ARM
@@ -47,8 +49,8 @@ Global
 		{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}.Release|x86.ActiveCfg = Release|x86
 		{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}.Release|x86.Build.0 = Release|x86
 		{695F4E18-9BBF-4B11-B3CE-EA03CD09EFE6}.Release|x86.Deploy.0 = Release|x86
-		{73936751-6325-49CE-8A7B-7006D6135B19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73936751-6325-49CE-8A7B-7006D6135B19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73936751-6325-49CE-8A7B-7006D6135B19}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{73936751-6325-49CE-8A7B-7006D6135B19}.Debug|Any CPU.Build.0 = Debug|x86
 		{73936751-6325-49CE-8A7B-7006D6135B19}.Debug|ARM.ActiveCfg = Debug|ARM
 		{73936751-6325-49CE-8A7B-7006D6135B19}.Debug|ARM.Build.0 = Debug|ARM
 		{73936751-6325-49CE-8A7B-7006D6135B19}.Debug|ARM64.ActiveCfg = Debug|ARM64

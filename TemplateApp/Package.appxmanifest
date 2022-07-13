@@ -7,17 +7,18 @@
   xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
   xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
   xmlns:iot2="http://schemas.microsoft.com/appx/manifest/iot/windows10/2"  
-  IgnorableNamespaces="uap mp desktop4 iot2">
+  xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"  
+  IgnorableNamespaces="uap mp desktop4 iot2 uap6">
 
   <Identity
-    Name="e3f36133-68dc-4b7d-872c-2b821a74e343"
-    Publisher="CN=ayush"
+    Name="Protecc"
+    Publisher="CN=3C7C8FC9-7104-4B33-8730-EE1E929D5D3B"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="e3f36133-68dc-4b7d-872c-2b821a74e343" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>TemplateApp</DisplayName>
+    <DisplayName>Protecc</DisplayName>
     <PublisherDisplayName>ayush</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -33,16 +34,16 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="TemplateApp.App"
+      EntryPoint="Protecc.App"
       desktop4:SupportsMultipleInstances="true"
 	    iot2:SupportsMultipleInstances="true">
       <uap:VisualElements
-        DisplayName="TemplateApp"
+        DisplayName="Protecc"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="TemplateApp"
+        Description="Protecc"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true" />
       </uap:VisualElements>
     </Application>
@@ -50,5 +51,7 @@
 
   <Capabilities>
     <Capability Name="internetClient" />
+    <uap6:Capability Name="graphicsCapture"/>
+    <DeviceCapability Name="webcam"/>
   </Capabilities>
 </Package>

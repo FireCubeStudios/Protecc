@@ -1,0 +1,47 @@
+﻿<UserControl
+    x:Class="Protecc.Controls.AccountControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Protecc.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
+    xmlns:icons="using:Fluent.Icons" 
+    xmlns:Helpers="using:Protecc.Helpers" 
+    xmlns:tbfx="using:TextBlockFX.Win2D.UWP" 
+    xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects" xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    mc:Ignorable="d">
+    <StackPanel Width="300" Loaded="Content_Loaded">
+        <Grid CornerRadius="8" Padding="12, 12, 12, 0" Margin="0, 0, 0, 8" Height="80" BorderThickness="1">
+            <TextBlock MaxWidth="210" Opacity="0.7" TextTrimming="CharacterEllipsis" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{x:Bind AccountVaultItem.Name, Mode=OneWay}"/>
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <TextBlock x:Name="CodeBlock" Foreground="White" FontSize="32" FontWeight="SemiBold">
+               <!-- <tbfx:TextBlockFX.TextEffect>
+                    <effects:Default/>
+                </tbfx:TextBlockFX.TextEffect>-->
+                </TextBlock>
+                <Grid x:Name="Filter" x:Load="{x:Bind Helpers:UIHelper.NullBoolToBool(PrivacyButton.IsChecked), Mode=OneWay}" Canvas.ZIndex="4" CornerRadius="4" Background="{ThemeResource MicaBrush}">
+                    <Grid>
+                        <Grid.Background>
+                            <media:BackdropBlurBrush Amount="240"/>
+                        </Grid.Background>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <muxc:ProgressRing x:Name="Progress" Foreground="{x:Bind Helpers:DataHelper.DecodeColor(AccountVaultItem.Resource), Mode=OneWay}" IsIndeterminate="False" VerticalAlignment="Center" HorizontalAlignment="Right" Maximum="30" Minimum="0" Height="60" Width="60"/>
+        </Grid>
+        <Grid Height="40" Padding="4" Background="{ThemeResource LayerFillColorDefaultBrush}">
+            <StackPanel Orientation="Horizontal">
+                <ToggleButton x:Name="PrivacyButton" Style="{ThemeResource ExperimentalToolbarToggleButton}" Width="44" Height="32">
+                    <icons:FluentSymbolIcon Margin="0, 0, 1, 0" Symbol="{x:Bind Helpers:UIHelper.PrivacyToIcon(PrivacyButton.IsChecked), Mode=OneWay}" Foreground="{ThemeResource HvidSortBrush}"/>
+                </ToggleButton>
+                <Button Click="Copy_Click" Style="{ThemeResource ToolbarButton}" HorizontalAlignment="Right" Width="44" Height="32">
+                    <icons:FluentSymbolIcon x:Name='CopyIcon' Symbol="Copy20" Margin="0, 0, 1, 0"/>
+                </Button>
+            </StackPanel>
+            <Button Click="Delete_Click" Style="{ThemeResource ExperimentalToolbarButton}" HorizontalAlignment="Right" Width="44" Height="32">
+                <icons:FluentSymbolIcon Symbol="Delete20" Margin="0, 0, 1, 0"/>
+            </Button>
+        </Grid>
+    </StackPanel>
+</UserControl>

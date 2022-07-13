@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
-    xmlns:icons="using:Fluent.Icons"
-    xmlns:CubeKitControls.Toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls">
+    xmlns:icons="using:Fluent.Icons" xmlns:Toolkit="using:CubeKit.UI.Controls.Toolkit">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///CubeKit.UI/Styles/CubeThemeDictionary.xaml" />
     </ResourceDictionary.MergedDictionaries>
@@ -361,7 +360,7 @@
                   Fill="{ThemeResource ToggleSwitchFillOff}"
                   Stroke="{ThemeResource ToggleSwitchStrokeOff}"
                   StrokeThickness="2" />
-                            <CubeKitControls.Toolkit:DropShadowPanel BlurRadius="16.0" Grid.Row="1"
+                            <Toolkit:DropShadowPanel BlurRadius="16.0" Grid.Row="1"
                                 Height="20"
                                 Width="44" IsMasked="True" x:Name="Glow"
                           OffsetX="0.0" OffsetY="0.0" Color="{ThemeResource SystemAccentColor}">
@@ -382,7 +381,7 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                            </CubeKitControls.Toolkit:DropShadowPanel>
+                            </Toolkit:DropShadowPanel>
                             <Grid x:Name="SwitchKnob"
                   Grid.Row="1"
                   HorizontalAlignment="Left"
@@ -619,11 +618,11 @@
                             <!-- A seperate element is added since the two orthogonal state groups that cannot touch the same property -->
 
                             <Ellipse x:Name="CheckOuterEllipse" Visibility="Collapsed" Width="20" Height="20" UseLayoutRounding="False" Stroke="{ThemeResource RadioButtonOuterEllipseCheckedStroke}" Fill="{ThemeResource RadioButtonOuterEllipseCheckedFill}" Opacity="0" StrokeThickness="{ThemeResource RadioButtonBorderThemeThickness}" />
-                            <CubeKitControls.Toolkit:DropShadowPanel BlurRadius="16.0" IsMasked="True" x:Name="Glow"
+                            <Toolkit:DropShadowPanel BlurRadius="16.0" IsMasked="True" x:Name="Glow"
                           OffsetX="0.0" OffsetY="0.0" Color="{ThemeResource SystemAccentColorLight3}" Width="{ThemeResource RadioButtonCheckGlyphSize}" UseLayoutRounding="False" Height="{ThemeResource RadioButtonCheckGlyphSize}">
                                 <Ellipse x:Name="CheckGlyph" Width="{ThemeResource RadioButtonCheckGlyphSize}"  Height="{ThemeResource RadioButtonCheckGlyphSize}" UseLayoutRounding="False" Opacity="0" Fill="{ThemeResource ResponsiveAccentBrush}" Stroke="{ThemeResource RadioButtonCheckGlyphStroke}">
                                 </Ellipse>
-                            </CubeKitControls.Toolkit:DropShadowPanel>
+                            </Toolkit:DropShadowPanel>
                             <!-- A seperate element is added since the two orthogonal state groups that cannot touch the same property -->
 
                             <Border x:Name="PressedCheckGlyph" Width="4" Height="4" CornerRadius="4" UseLayoutRounding="False" Opacity="0" Background="{ThemeResource ResponsiveAccentBrush}" BackgroundSizing="OuterBorderEdge" BorderBrush="{ThemeResource RadioButtonCheckGlyphStroke}">
