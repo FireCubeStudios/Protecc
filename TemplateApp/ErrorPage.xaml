@@ -38,7 +38,7 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <WebView  HorizontalAlignment="Stretch" DefaultBackgroundColor="Transparent" VerticalAlignment="Stretch" Source="ms-appx-web:///CubeKit.UI/Materials/Windows11Danger.html"/>
+        <WebView HorizontalAlignment="Stretch" DefaultBackgroundColor="Transparent" VerticalAlignment="Stretch" Source="ms-appx-web:///CubeKit.UI/Materials/Windows11Danger.html"/>
     </Grid>
 
 </Page>

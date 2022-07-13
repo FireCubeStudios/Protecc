@@ -5,10 +5,63 @@
     xmlns:local="using:Protecc"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
+    xmlns:Icons="using:Fluent.Icons" 
+    xmlns:primitives="using:Microsoft.UI.Xaml.Controls.Primitives" 
+    xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls" 
+    xmlns:Materials="using:CubeKit.UI.Materials"
+    xmlns:ToolkitControls="using:CubeKit.UI.Controls.Toolkit"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <LinearGradientBrush x:Name="AccentLinearGradientBrush" x:Key="AccentLinearGradientBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="{ThemeResource SystemAccentColorLight1}" Offset="0.0" />
+            <GradientStop Color="{ThemeResource SystemAccentColorLight2}" Offset="0.5" />
+            <GradientStop Color="{ThemeResource SystemAccentColorLight3}" Offset="1.0" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Name="RedLinearGradientBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="DarkRed" Offset="0.0" />
+            <GradientStop Color="Red" Offset="0.5" />
+            <GradientStop Color="#e96e60" Offset="1.0" />
+        </LinearGradientBrush>
+    </Page.Resources>
+    <Grid x:Name="Content">
+        <Border x:Name="AppTitleBar"
+                IsHitTestVisible="True"
+                VerticalAlignment="Top"
+                Background="Transparent"
+                Height="40"
+                Canvas.ZIndex="1" 
+                Margin="12,0,0,0">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="AppFontIcon"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center"
+                    Source="Assets/Square44x44Logo.png" 
+                    Width="16" 
+                    Height="16"/>
+                <TextBlock x:Name="AppTitle"
+                    Text="Authenticate - Protecc"
+                    VerticalAlignment="Center"
+                    Margin="12, 0, 0, 0"
+                    Style="{StaticResource CaptionTextBlockStyle}" />
+            </StackPanel>
+        </Border>
+        <toolkit:DropShadowPanel Canvas.ZIndex="3" ShadowOpacity="0.4" OffsetX="4" CornerRadius="8" OffsetY="4" HorizontalAlignment="center" VerticalAlignment="Center">
+            <Grid BorderBrush="{ThemeResource MicaBorderBrush}" Background="{ThemeResource MicaBrush}" CornerRadius="8"  BorderThickness="1" HorizontalAlignment="center" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="center" VerticalAlignment="Center" Padding="16">
+                    <TextBlock x:Name="Title" FontSize="24" FontWeight="SemiBold" Margin="0, 0, 0, 12"/>
+                    <muxc:ProgressRing x:Name="Ring" IsActive="True" Height="40" Width="40" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.ZIndex="2"/>
+                    <Button x:Name="AuthButton" Click="Authenticate_Click" Style="{ThemeResource ExperimentalToolbarButton}" BorderBrush="{ThemeResource MicaBorderBrush}" VerticalAlignment="center" HorizontalAlignment="Center" Canvas.ZIndex="2">
+                        <StackPanel Orientation="Horizontal">
+                            <Icons:FluentSymbolIcon Margin="0, 0, 4, 0" Symbol="Key20"/>
+                            <TextBlock VerticalAlignment="Center" Text="Authenticate"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </toolkit:DropShadowPanel>
+        <WebView x:Name="RSOD" HorizontalAlignment="Stretch" DefaultBackgroundColor="Transparent" VerticalAlignment="Stretch" Source="ms-appx-web:///CubeKit.UI/Materials/Windows11Danger.html"/>
+        <Materials:AuroraLite x:Name="Aurora"/>
     </Grid>
 </Page>
