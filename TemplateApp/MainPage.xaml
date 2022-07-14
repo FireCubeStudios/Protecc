@@ -54,7 +54,7 @@
                         </Button.Flyout>
                     </Button>
                     <AppBarSeparator/>
-                    <ToggleButton x:Name="PrivacyButton" Width="100" Style="{ThemeResource ExperimentalToolbarToggleButton}">
+                    <ToggleButton x:Name="PrivacyButton" Width="100" IsChecked="{x:Bind Helpers:SettingsHelper.GetLaunchBlur(), Mode=OneWay}" Style="{ThemeResource ExperimentalToolbarToggleButton}">
                         <StackPanel Orientation="Horizontal">
                             <icons:FluentSymbolIcon Symbol="{x:Bind Helpers:UIHelper.PrivacyToIcon(PrivacyButton.IsChecked), Mode=OneWay}" Foreground="{ThemeResource HvidSortBrush}"/>
                             <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Foreground="{ThemeResource HvidSortBrush}" Text="{x:Bind Helpers:UIHelper.PrivacyToText(PrivacyButton.IsChecked), Mode=OneWay}"/>

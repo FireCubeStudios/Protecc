@@ -1,4 +1,5 @@
 ﻿using CubeKit.UI.Services;
+using OtpNet;
 using Protecc.Services;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,18 @@ namespace Protecc
             }
             else
             {
+                try
+                {
+                    Base32Encoding.ToBytes(KeyBox.Password); // Validate key
+                }
+                catch
+                {
+                    KeyBox.Foreground = RedLinearGradientBrush;
+                    KeyBox.Focus(FocusState.Programmatic);
+                    Ring.Visibility = Visibility.Collapsed;
+                    Content.Opacity = 1;
+                    return;
+                }
                 CredentialService.StoreNewCredential(NameBox.Text, KeyBox.Password, ColorPicker.Color, TimeOptions.SelectedIndex, DigitOptions.SelectedIndex, EncryptionMode.SelectedIndex);
                 Frame rootFrame = Window.Current.Content as Frame;
                 rootFrame.Navigate(typeof(MainPage));

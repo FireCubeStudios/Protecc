@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using TextBlockFX.Win2D.UWP.Effects;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -43,19 +44,23 @@ namespace Protecc.Controls
         {
             this.InitializeComponent();
             Window.Current.Activated += Current_Activated;
+            CodeBlock.TextEffect = new MotionBlur();
         }
      
         private void Current_Activated(object sender, WindowActivatedEventArgs e)
         {
-            if(e.WindowActivationState == CoreWindowActivationState.Deactivated)
+            if (SettingsHelper.GetFocusBlur())
             {
-                WasChecked = (bool)PrivacyButton.IsChecked;
-                PrivacyButton.IsChecked = true;
-            }
-            else
-            {
-                PrivacyButton.IsChecked = WasChecked;
-                WasChecked = false;
+                if (e.WindowActivationState == CoreWindowActivationState.Deactivated)
+                {
+                    WasChecked = (bool)PrivacyButton.IsChecked;
+                    PrivacyButton.IsChecked = true;
+                }
+                else
+                {
+                    PrivacyButton.IsChecked = WasChecked;
+                    WasChecked = false;
+                }
             }
         }
 

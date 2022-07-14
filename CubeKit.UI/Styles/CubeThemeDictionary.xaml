@@ -4,13 +4,12 @@
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media" 
     xmlns:Converters="using:CubeKit.UI.Converters">
     <Converters:ColorToSolidColorBrushConverter x:Key="ColorToBrush" />
+    <media:RadialGradientBrush x:Key="RadioBrush">
+        <GradientStop Color="{ThemeResource SystemAccentColorLight2}" Offset="0.0"/>
+        <GradientStop Color="{ThemeResource SystemAccentColorLight3}" Offset="1"/>
+    </media:RadialGradientBrush>
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Dark">
-            <media:RadialGradientBrush x:Key="RadioBrush">
-                <GradientStop Color="{ThemeResource SystemAccentColorLight2}" Offset="0.0"/>
-                <GradientStop Color="{ThemeResource SystemAccentColorLight3}" Offset="1"/>
-            </media:RadialGradientBrush>
-            
             <ResourceDictionary.MergedDictionaries>
                 <ColorPaletteResources  AltHigh="#FF000000" AltLow="#FF000000" AltMedium="#FF000000" AltMediumHigh="#FF000000" AltMediumLow="#FF000000" BaseHigh="#FFFFFFFF" BaseLow="#FF333333" BaseMedium="#FF9A9A9A" BaseMediumHigh="#FFB4B4B4" BaseMediumLow="#FF676767" ChromeAltLow="#FFB4B4B4" ChromeBlackHigh="#FF000000" ChromeBlackLow="#FFB4B4B4" ChromeBlackMedium="#FF000000" ChromeBlackMediumLow="#FF000000" ChromeDisabledHigh="#FF333333" ChromeDisabledLow="#FF9A9A9A" ChromeGray="#FF808080" ChromeHigh="#FF808080" ChromeLow="#FF151515" ChromeMedium="#FF1D1D1D" ChromeMediumLow="#FF2C2C2C" ChromeWhite="#FFFFFFFF" ListLow="#FF1D1D1D" ListMedium="#FF333333" />
                 <ResourceDictionary>

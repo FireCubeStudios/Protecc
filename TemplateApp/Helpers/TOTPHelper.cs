@@ -9,7 +9,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TextBlockFX;
 using TextBlockFX.Win2D.UWP;
+using TextBlockFX.Win2D.UWP.Effects;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -22,15 +24,17 @@ namespace Protecc.Helpers
     public class TOTPHelper : IDisposable
     {
        // private FX.TextBlockFX CodeBlock;
-        private TextBlock CodeBlock;
+        private FX.TextBlockFX CodeBlock;
         private ProgressRing Progress;
         private DispatcherTimer dispatcherTimer;
         private Totp OTP;
         private int Time;
         private int Digits;
-        public TOTPHelper(TextBlock codeBlock, ProgressRing ring, VaultItem vault)
+        public TOTPHelper(FX.TextBlockFX codeBlock, ProgressRing ring, VaultItem vault)
         {
             CodeBlock = codeBlock;
+            CodeBlock.RedrawStateChanged += CodeBlock_RedrawStateChanged;
+            CodeBlock.TextEffect = new MotionBlur();
             Progress = ring;
             Progress.Maximum = Time;
             Time = DataHelper.DecodeTime(vault.Resource);
@@ -41,8 +45,17 @@ namespace Protecc.Helpers
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += Timer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
+     
         }
+
+        private void CodeBlock_RedrawStateChanged(object sender, RedrawState e)
+        {
+            if (e == RedrawState.Idle)
+            {
+                dispatcherTimer.Start();
+            }
+        }
+
         private async void Timer_Tick(object sender, object e)
         {
             await Task.Run(async () =>

@@ -39,7 +39,6 @@ namespace Protecc.Services
             byte[] Key;
             Key = Base32Encoding.ToBytes(Vault.Retrieve(vaultItem.Resource, vaultItem.Name).Password);
             return Key;
-
         }
         protected internal async static void RemoveItem(VaultItem vaultItem)
         {

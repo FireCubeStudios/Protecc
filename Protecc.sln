@@ -7,7 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protecc", "TemplateApp\Prot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CubeKit.UI", "CubeKit.UI\CubeKit.UI.csproj", "{73936751-6325-49CE-8A7B-7006D6135B19}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextBlockFX.Win2D.UWP", "..\..\..\Downloads\TextBlockFX-main\TextBlockFX-main\TextBlockFX.Win2D.UWP\TextBlockFX.Win2D.UWP.csproj", "{1C834637-F90C-4C7B-8176-6B8369EA6558}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TextBlockFX.Shared", "..\..\..\Downloads\TextBlockFX-main\TextBlockFX-main\TextBlockFX.Shared\TextBlockFX.Shared.shproj", "{B2E9BF21-AF69-44FF-9135-510F04F946FE}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\Downloads\TextBlockFX-main\TextBlockFX-main\TextBlockFX.Shared\TextBlockFX.Shared.projitems*{1c834637-f90c-4c7b-8176-6b8369ea6558}*SharedItemsImports = 4
+		..\..\..\Downloads\TextBlockFX-main\TextBlockFX-main\TextBlockFX.Shared\TextBlockFX.Shared.projitems*{b2e9bf21-af69-44ff-9135-510f04f946fe}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
@@ -69,6 +77,26 @@ Global
 		{73936751-6325-49CE-8A7B-7006D6135B19}.Release|x64.Build.0 = Release|x64
 		{73936751-6325-49CE-8A7B-7006D6135B19}.Release|x86.ActiveCfg = Release|x86
 		{73936751-6325-49CE-8A7B-7006D6135B19}.Release|x86.Build.0 = Release|x86
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|ARM.ActiveCfg = Debug|ARM
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|ARM.Build.0 = Debug|ARM
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|ARM64.Build.0 = Debug|ARM64
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|x64.ActiveCfg = Debug|x64
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|x64.Build.0 = Debug|x64
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|x86.ActiveCfg = Debug|x86
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Debug|x86.Build.0 = Debug|x86
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|ARM.ActiveCfg = Release|ARM
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|ARM.Build.0 = Release|ARM
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|ARM64.ActiveCfg = Release|ARM64
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|ARM64.Build.0 = Release|ARM64
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|x64.ActiveCfg = Release|x64
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|x64.Build.0 = Release|x64
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|x86.ActiveCfg = Release|x86
+		{1C834637-F90C-4C7B-8176-6B8369EA6558}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
