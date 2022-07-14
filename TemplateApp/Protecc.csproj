@@ -149,9 +149,6 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestPage.xaml.cs">
-      <DependentUpon>TestPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WindowsHelloPage.xaml.cs">
       <DependentUpon>WindowsHelloPage.xaml</DependentUpon>
     </Compile>
@@ -247,10 +244,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TestPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="WindowsHelloPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -278,15 +271,14 @@
     <PackageReference Include="Otp.NET">
       <Version>1.2.2</Version>
     </PackageReference>
+    <PackageReference Include="TextBlockFX.Win2D.UWP">
+      <Version>1.0.3</Version>
+    </PackageReference>
     <PackageReference Include="ZXing.Net.Mobile">
       <Version>3.1.0-beta2</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Downloads\TextBlockFX-main\TextBlockFX-main\TextBlockFX.Win2D.UWP\TextBlockFX.Win2D.UWP.csproj">
-      <Project>{1c834637-f90c-4c7b-8176-6b8369ea6558}</Project>
-      <Name>TextBlockFX.Win2D.UWP</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CubeKit.UI\CubeKit.UI.csproj">
       <Project>{73936751-6325-49ce-8a7b-7006d6135b19}</Project>
       <Name>CubeKit.UI</Name>

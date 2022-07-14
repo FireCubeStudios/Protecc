@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using TextBlockFX;
 using TextBlockFX.Win2D.UWP.Effects;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
@@ -44,9 +45,8 @@ namespace Protecc.Controls
         {
             this.InitializeComponent();
             Window.Current.Activated += Current_Activated;
-            CodeBlock.TextEffect = new MotionBlur();
         }
-     
+
         private void Current_Activated(object sender, WindowActivatedEventArgs e)
         {
             if (SettingsHelper.GetFocusBlur())
@@ -70,10 +70,7 @@ namespace Protecc.Controls
             CredentialService.RemoveItem(AccountVaultItem);
         }
 
-        private void Content_Loaded(object sender, RoutedEventArgs e)
-        {
-            TOTP = new TOTPHelper(CodeBlock, Progress, AccountVaultItem);
-        }
+        private void Content_Loaded(object sender, RoutedEventArgs e) => TOTP = new TOTPHelper(CodeBlock, Progress, AccountVaultItem);
 
         private async void Copy_Click(object sender, RoutedEventArgs e)
         {

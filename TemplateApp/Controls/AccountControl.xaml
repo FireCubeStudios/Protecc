@@ -8,16 +8,17 @@
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
     xmlns:icons="using:Fluent.Icons" 
     xmlns:Helpers="using:Protecc.Helpers"
-    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media" xmlns:tbfx="using:TextBlockFX.Win2D.UWP" xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects"
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media" 
+    xmlns:tbfx="using:TextBlockFX.Win2D.UWP" xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects"
     mc:Ignorable="d">
     <StackPanel Width="300" Loaded="Content_Loaded">
-        <Grid CornerRadius="8" Padding="12, 12, 12, 0" Margin="0, 0, 0, 8" Height="80" BorderThickness="1">
+        <Grid CornerRadius="8" Padding="12, 12, 12, 0" Margin="0, 0, 0, 8" Height="80" BorderThickness="1" Canvas.ZIndex="3">
             <TextBlock MaxWidth="210" Opacity="0.7" TextTrimming="CharacterEllipsis" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{x:Bind AccountVaultItem.Name, Mode=OneWay}"/>
-            <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                <tbfx:TextBlockFX x:Name="CodeBlock"   TextAlignment="Center"
-                          TextTrimming="CharacterEllipsis"
-                                                    
-                          TextWrapping="Wrap" Foreground="White" FontSize="32" FontWeight="SemiBold">
+            <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="200" Height="80" Margin="0, 0, 0, -20" >
+                <tbfx:TextBlockFX x:Name="CodeBlock" Foreground="{ThemeResource HvidSortBrush}" FontSize="32" FontWeight="SemiBold">
+                    <tbfx:TextBlockFX.TextEffect>
+                        <effects:MotionBlur/>
+                    </tbfx:TextBlockFX.TextEffect>
                 </tbfx:TextBlockFX>
                 <Grid x:Name="Filter" x:Load="{x:Bind Helpers:UIHelper.NullBoolToBool(PrivacyButton.IsChecked), Mode=OneWay}" Canvas.ZIndex="4" CornerRadius="4" Background="{ThemeResource MicaBrush}">
                     <Grid>

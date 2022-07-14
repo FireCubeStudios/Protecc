@@ -33,8 +33,6 @@ namespace Protecc.Helpers
         public TOTPHelper(FX.TextBlockFX codeBlock, ProgressRing ring, VaultItem vault)
         {
             CodeBlock = codeBlock;
-            CodeBlock.RedrawStateChanged += CodeBlock_RedrawStateChanged;
-            CodeBlock.TextEffect = new MotionBlur();
             Progress = ring;
             Progress.Maximum = Time;
             Time = DataHelper.DecodeTime(vault.Resource);
@@ -45,15 +43,7 @@ namespace Protecc.Helpers
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += Timer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-     
-        }
-
-        private void CodeBlock_RedrawStateChanged(object sender, RedrawState e)
-        {
-            if (e == RedrawState.Idle)
-            {
-                dispatcherTimer.Start();
-            }
+            dispatcherTimer.Start();
         }
 
         private async void Timer_Tick(object sender, object e)
