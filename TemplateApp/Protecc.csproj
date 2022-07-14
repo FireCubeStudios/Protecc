@@ -126,16 +126,20 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\Account.cs" />
+    <Compile Include="Classes\SettingsClass.cs" />
     <Compile Include="Classes\VaultItem.cs" />
     <Compile Include="Controls\AccountControl.xaml.cs">
       <DependentUpon>AccountControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SettingsControl.xaml.cs">
+      <DependentUpon>SettingsControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ErrorPage.xaml.cs">
       <DependentUpon>ErrorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ColorUIHelper.cs" />
     <Compile Include="Helpers\DataHelper.cs" />
-    <Compile Include="Helpers\SettingsHelper.cs" />
+    <Compile Include="Helpers\ExportHelper.cs" />
     <Compile Include="Helpers\TOTPHelper.cs" />
     <Compile Include="OOBEPage.xaml.cs">
       <DependentUpon>OOBEPage.xaml</DependentUpon>
@@ -228,6 +232,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\SettingsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ErrorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -273,6 +281,9 @@
     </PackageReference>
     <PackageReference Include="TextBlockFX.Win2D.UWP">
       <Version>1.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="YamlDotNet">
+      <Version>11.2.1</Version>
     </PackageReference>
     <PackageReference Include="ZXing.Net.Mobile">
       <Version>3.1.0-beta2</Version>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
+using Protecc.Classes;
 using Protecc.Helpers;
 using System;
 using System.Collections.Generic;
@@ -76,10 +77,10 @@ namespace Protecc
                     // parameter
                     if (SystemInformation.Instance.IsFirstRun)
                     {
-                        SettingsHelper.Setup();
+                        new SettingsClass().Setup();
                         rootFrame.Navigate(typeof(OOBEPage), e.Arguments);
                     }
-                    else if(SettingsHelper.GetWindowsHello())
+                    else if(new SettingsClass().WindowsHello)
                     {
                         rootFrame.Navigate(typeof(WindowsHelloPage), e.Arguments);
                     }

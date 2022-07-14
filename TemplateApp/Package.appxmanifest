@@ -7,8 +7,8 @@
   xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
   xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
   xmlns:iot2="http://schemas.microsoft.com/appx/manifest/iot/windows10/2"  
-  xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"  
-  IgnorableNamespaces="uap mp desktop4 iot2 uap6">
+  xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6"
+  IgnorableNamespaces="uap mp desktop4 iot2 uap6 uap5">
 
   <Identity
     Name="Protecc"

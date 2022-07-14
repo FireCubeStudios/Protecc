@@ -12,6 +12,7 @@
     xmlns:Materials="using:CubeKit.UI.Materials"
     xmlns:ToolkitControls="using:CubeKit.UI.Controls.Toolkit"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    NavigationCacheMode="Enabled"
     mc:Ignorable="d">
     <Page.Resources>
         <!--Cursed style uses foreground property to change color of line-->

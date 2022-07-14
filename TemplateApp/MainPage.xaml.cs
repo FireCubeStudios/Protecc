@@ -1,4 +1,5 @@
 ﻿using CubeKit.UI.Services;
+using Protecc.Classes;
 using Protecc.Helpers;
 using Protecc.Services;
 using System;
@@ -32,6 +33,8 @@ namespace Protecc
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public SettingsClass Settings = new();
+
         public MainPage()
         {
             this.InitializeComponent();

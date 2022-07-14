@@ -9,13 +9,14 @@
     xmlns:icons="using:Fluent.Icons" 
     xmlns:Helpers="using:Protecc.Helpers"
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media" 
-    xmlns:tbfx="using:TextBlockFX.Win2D.UWP" xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects"
+    xmlns:tbfx="using:TextBlockFX.Win2D.UWP" 
+    xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects"
     mc:Ignorable="d">
-    <StackPanel Width="300" Loaded="Content_Loaded">
+    <StackPanel Width="300" Unloaded="Content_Unloaded">
         <Grid CornerRadius="8" Padding="12, 12, 12, 0" Margin="0, 0, 0, 8" Height="80" BorderThickness="1" Canvas.ZIndex="3">
             <TextBlock MaxWidth="210" Opacity="0.7" TextTrimming="CharacterEllipsis" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Text="{x:Bind AccountVaultItem.Name, Mode=OneWay}"/>
             <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="200" Height="80" Margin="0, 0, 0, -20" >
-                <tbfx:TextBlockFX x:Name="CodeBlock" Foreground="{ThemeResource HvidSortBrush}" FontSize="32" FontWeight="SemiBold">
+                <tbfx:TextBlockFX x:Name="CodeBlock" Text="{x:Bind TOTP.Code, Mode=OneWay}" Foreground="{ThemeResource HvidSortBrush}" FontSize="32" FontWeight="SemiBold">
                     <tbfx:TextBlockFX.TextEffect>
                         <effects:MotionBlur/>
                     </tbfx:TextBlockFX.TextEffect>
@@ -28,7 +29,7 @@
                     </Grid>
                 </Grid>
             </Grid>
-            <muxc:ProgressRing x:Name="Progress" Foreground="{x:Bind Helpers:DataHelper.DecodeColor(AccountVaultItem.Resource), Mode=OneWay}" IsIndeterminate="False" VerticalAlignment="Center" HorizontalAlignment="Right" Maximum="30" Minimum="0" Height="60" Width="60"/>
+            <muxc:ProgressRing x:Name="Progress" Value="{x:Bind TOTP.TimeRemaining, Mode=OneWay}" Maximum="{x:Bind TOTP.Maximum, Mode=OneWay}" Foreground="{x:Bind Helpers:DataHelper.DecodeColor(AccountVaultItem.Resource), Mode=OneWay}" IsIndeterminate="False" VerticalAlignment="Center" HorizontalAlignment="Right" Minimum="0" Height="60" Width="60"/>
         </Grid>
         <Grid Height="40" Padding="4" Background="{ThemeResource LayerFillColorDefaultBrush}">
             <StackPanel Orientation="Horizontal">

@@ -13,6 +13,7 @@ using TextBlockFX;
 using TextBlockFX.Win2D.UWP;
 using TextBlockFX.Win2D.UWP.Effects;
 using Windows.ApplicationModel.Core;
+using Windows.System.Threading;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -21,50 +22,72 @@ using ProgressRing = Microsoft.UI.Xaml.Controls.ProgressRing;
 
 namespace Protecc.Helpers
 {
-    public class TOTPHelper : IDisposable
+    public class TOTPHelper : INotifyPropertyChanged, IDisposable
     {
-       // private FX.TextBlockFX CodeBlock;
-        private FX.TextBlockFX CodeBlock;
-        private ProgressRing Progress;
-        private DispatcherTimer dispatcherTimer;
+        private ThreadPoolTimer PeriodicTimer;
         private Totp OTP;
         private int Time;
-        private int Digits;
-        public TOTPHelper(FX.TextBlockFX codeBlock, ProgressRing ring, VaultItem vault)
+        private string _Code;
+        public string Code
         {
-            CodeBlock = codeBlock;
-            Progress = ring;
-            Progress.Maximum = Time;
+            get
+            {
+                return _Code;
+            }
+            set
+            {
+                SetField(ref _Code, value, "Code");
+            }
+        }
+        private double _Maximum;
+        public double Maximum
+        {
+            get
+            {
+                return _Maximum;
+            }
+            set
+            {
+                SetField(ref _Maximum, value, "Maximum");
+            }
+        }
+        private double _TimeRemaining;
+        public double TimeRemaining
+        {
+            get 
+            {
+                return _TimeRemaining; 
+            }
+            set
+            {
+                SetField(ref _TimeRemaining, value, "TimeRemaining");
+            }
+        }
+        private int Digits;
+        public TOTPHelper(VaultItem vault)
+        {
             Time = DataHelper.DecodeTime(vault.Resource);
+            Maximum = Time;
             Digits = DataHelper.DecodeDigits(vault.Resource);
-            Progress.Maximum = Time - 1;
+            Maximum = Time - 1;
             OTP = new Totp(CredentialService.GetKey(vault), step:Time, DataHelper.DecodeEncryption(vault.Resource), totpSize:Digits);
-            CodeBlock.Text = FormatCode(OTP.ComputeTotp(DateTime.UtcNow));
-            dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += Timer_Tick;
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
-            dispatcherTimer.Start();
+            Code = FormatCode(OTP.ComputeTotp(DateTime.UtcNow));
+            PeriodicTimer = ThreadPoolTimer.CreatePeriodicTimer(TimerElapsed, TimeSpan.FromMilliseconds(1000));
         }
 
-        private async void Timer_Tick(object sender, object e)
-        {
-            await Task.Run(async () =>
+        private async void TimerElapsed(ThreadPoolTimer timer)
+        {      
+            if (OTP.RemainingSeconds() == 1)
             {
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
-                {
-                    if (OTP.RemainingSeconds() == 1)
-                    {
-                        Progress.Value = 0;
-                        Progress.Value = Time - 1;
-                        await Task.Delay(1000);
-                        CodeBlock.Text = FormatCode(OTP.ComputeTotp(DateTime.UtcNow));
-                    }
-                    else if(OTP.RemainingSeconds() <= Time - 1)
-                    {
-                        Progress.Value = OTP.RemainingSeconds();
-                    }
-                });
-            });
+                TimeRemaining = 0;
+                TimeRemaining = Time - 1;
+                await Task.Delay(1000);
+                Code = FormatCode(OTP.ComputeTotp(DateTime.UtcNow));
+            }
+            else if (OTP.RemainingSeconds() <= Time - 1)
+            {
+                TimeRemaining = OTP.RemainingSeconds();
+            }
         }
 
         private string FormatCode(string code)
@@ -79,13 +102,23 @@ namespace Protecc.Helpers
             }
         }
 
-        public void Dispose()
+        public void Dispose() => PeriodicTimer.Cancel();
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected async virtual void OnPropertyChanged(string propertyName)
         {
-            dispatcherTimer.Stop();
-            dispatcherTimer.Tick -= Timer_Tick;
-            OTP = null;
-            CodeBlock = null;
-            Progress = null;
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                PropertyChangedEventHandler handler = PropertyChanged;
+                if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+            });
+        }
+        protected bool SetField<T>(ref T field, T value, string propertyName)
+        {
+                if (EqualityComparer<T>.Default.Equals(field, value)) return false;
+                field = value;
+                OnPropertyChanged(propertyName);
+                return true;
         }
     }
 }

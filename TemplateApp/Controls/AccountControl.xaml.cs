@@ -36,7 +36,10 @@ namespace Protecc.Controls
         public VaultItem AccountVaultItem
         {
             get { return (VaultItem)GetValue(AccountVaultItemProperty); }
-            set { SetValue(AccountVaultItemProperty, value); }
+            set { 
+                SetValue(AccountVaultItemProperty, value);
+                TOTP = new TOTPHelper(AccountVaultItem);
+            }
         }
         public static readonly DependencyProperty AccountVaultItemProperty =
                    DependencyProperty.Register("AccountVaultItem", typeof(VaultItem), typeof(AccountControl), null);
@@ -44,12 +47,13 @@ namespace Protecc.Controls
         public AccountControl()
         {
             this.InitializeComponent();
+            Bindings.Update();
             Window.Current.Activated += Current_Activated;
         }
 
         private void Current_Activated(object sender, WindowActivatedEventArgs e)
         {
-            if (SettingsHelper.GetFocusBlur())
+            if (new SettingsClass().FocusBlur)
             {
                 if (e.WindowActivationState == CoreWindowActivationState.Deactivated)
                 {
@@ -62,6 +66,7 @@ namespace Protecc.Controls
                     WasChecked = false;
                 }
             }
+            Bindings.Update();
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -69,8 +74,6 @@ namespace Protecc.Controls
             TOTP.Dispose();
             CredentialService.RemoveItem(AccountVaultItem);
         }
-
-        private void Content_Loaded(object sender, RoutedEventArgs e) => TOTP = new TOTPHelper(CodeBlock, Progress, AccountVaultItem);
 
         private async void Copy_Click(object sender, RoutedEventArgs e)
         {
@@ -90,5 +93,9 @@ namespace Protecc.Controls
             await Task.Delay(2000);
             CopyIcon.Symbol = Fluent.Icons.FluentSymbol.Copy20;
         }
+
+        private void Content_Unloaded(object sender, RoutedEventArgs e) => TOTP.Dispose();
+
+        //private void Content_Loaded(object sender, RoutedEventArgs e) => TOTP = new TOTPHelper(CodeBlock, Progress, AccountVaultItem);
     }
 }

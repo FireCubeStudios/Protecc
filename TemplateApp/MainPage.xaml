@@ -11,6 +11,7 @@
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media" 
     xmlns:controls="using:Protecc.Controls" 
     xmlns:Helpers="using:Protecc.Helpers" 
+    NavigationCacheMode="Enabled"
     xmlns:Classes="using:Protecc.Classes" 
     xmlns:Services="using:Protecc.Services" xmlns:tbfx="using:TextBlockFX.Win2D.UWP" xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
@@ -54,26 +55,20 @@
                         </Button.Flyout>
                     </Button>
                     <AppBarSeparator/>
-                    <ToggleButton x:Name="PrivacyButton" Width="100" IsChecked="{x:Bind Helpers:SettingsHelper.GetLaunchBlur(), Mode=OneWay}" Style="{ThemeResource ExperimentalToolbarToggleButton}">
+                    <ToggleButton x:Name="PrivacyButton" Width="100" IsChecked="{x:Bind Settings.LaunchBlur, Mode=OneWay}" Style="{ThemeResource ExperimentalToolbarToggleButton}">
                         <StackPanel Orientation="Horizontal">
-                          <!--  <icons:FluentSymbolIcon Symbol="{x:Bind Helpers:UIHelper.PrivacyToIcon(PrivacyButton.IsChecked), Mode=OneWay}" Foreground="{ThemeResource HvidSortBrush}"/>-->
+                            <icons:FluentSymbolIcon Symbol="{x:Bind Helpers:UIHelper.PrivacyToIcon(PrivacyButton.IsChecked), Mode=OneWay}" Foreground="{ThemeResource HvidSortBrush}"/>
                             <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Foreground="{ThemeResource HvidSortBrush}" Text="{x:Bind Helpers:UIHelper.PrivacyToText(PrivacyButton.IsChecked), Mode=OneWay}"/>
                         </StackPanel>
                     </ToggleButton>
                     <AppBarSeparator/>
-                 <!--   <Button Style="{ThemeResource ToolbarButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <icons:FluentSymbolIcon Symbol="ArrowImport20"/>
-                            <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Text="Import"/>
-                        </StackPanel>
+                    <Button Style="{ThemeResource SettingsToolbarButton}">
+                        <Button.Flyout>
+                            <Flyout FlyoutPresenterStyle="{ThemeResource MicaFlyoutStyle}">
+                                <controls:SettingsControl/>
+                            </Flyout>
+                        </Button.Flyout>
                     </Button>
-                    <Button Style="{ThemeResource ToolbarButton}">
-                        <StackPanel Orientation="Horizontal">
-                            <icons:FluentSymbolIcon Symbol="FolderZip20"/>
-                            <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Text="Export"/>
-                        </StackPanel>
-                    </Button>-->
-                    <Button Style="{ThemeResource SettingsToolbarButton}"/>
                 </StackPanel>
             </Grid>
             <GridView x:Name="AccountsView" ItemContainerStyle="{ThemeResource CardContainer}" SelectionChanged="AccountsView_SelectionChanged" ItemsSource="{x:Bind Services:CredentialService.CredentialList, Mode=OneWay}" SelectionMode="Single" VerticalAlignment="Top" Margin="-8, 86, -50, 0" HorizontalAlignment="Left">

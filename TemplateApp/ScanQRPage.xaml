@@ -11,6 +11,7 @@
     xmlns:Materials="using:CubeKit.UI.Materials" 
     xmlns:controls="using:Protecc.Controls" 
     xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    NavigationCacheMode="Enabled"
     mc:Ignorable="d"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True">
     <Page.Resources>

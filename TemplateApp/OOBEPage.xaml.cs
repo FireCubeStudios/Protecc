@@ -1,4 +1,5 @@
 ﻿using CubeKit.UI.Services;
+using Protecc.Classes;
 using Protecc.Helpers;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace Protecc
     /// </summary>
     public sealed partial class OOBEPage : Page
     {
+        public SettingsClass Settings = new();
         public OOBEPage()
         {
             this.InitializeComponent();
@@ -46,23 +48,11 @@ namespace Protecc
                 WindowsHelloText.Text = "*Windows Hello not setup";
                 WindowsHelloSwitch.IsEnabled = false;
             }
-            else
-            {
-                WindowsHelloSwitch.IsOn = SettingsHelper.GetWindowsHello();
-            }
-            LaunchBlur.IsOn = SettingsHelper.GetLaunchBlur();
-            FocusBlur.IsOn = SettingsHelper.GetFocusBlur();
         }
 
         private void CompletedOOBE_Click(object sender, RoutedEventArgs e)
         {
             OpenRing.Visibility = Visibility.Visible;
-            if (WindowsHelloSwitch.IsEnabled)
-            {
-                SettingsHelper.SetWindowsHello(WindowsHelloSwitch.IsOn);
-            }
-            SettingsHelper.SetLaunchBlur(LaunchBlur.IsOn);
-            SettingsHelper.SetFocusBlur(LaunchBlur.IsOn);
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(MainPage));
         }
