@@ -32,7 +32,12 @@ namespace Protecc.Services
         private static PasswordVault Vault = new PasswordVault();
         public static ObservableCollection<VaultItem> CredentialList = new ObservableCollection<VaultItem>();
 
-        protected internal static void StoreNewCredential(string Name, string Key, Color Color, int TimeIndex, int DigitsIndex, int Encryptionindex) => Vault.Add(new PasswordCredential(DataHelper.Encode(Color, TimeIndex, DigitsIndex, Encryptionindex), Name, Key));
+        protected internal static void StoreNewCredential(string Name, string Key, Color Color, int TimeIndex, int DigitsIndex, int Encryptionindex)
+        {
+            string Resource = DataHelper.Encode(Color, TimeIndex, DigitsIndex, Encryptionindex);
+            Vault.Add(new PasswordCredential(Resource, Name, Key));
+            CredentialList.Add(new VaultItem(Name, Resource));
+        }
 
         protected internal static byte[] GetKey(VaultItem vaultItem)
         {
@@ -41,24 +46,24 @@ namespace Protecc.Services
             return Key;
         }
 
-        protected internal async static void RemoveItem(VaultItem vaultItem)
+        protected internal static void RemoveItem(VaultItem vaultItem)
         {
             Vault.Remove(Vault.Retrieve(vaultItem.Resource, vaultItem.Name));
-            await RefreshListAsync();
+            CredentialList.Remove(vaultItem);
         }
 
         protected internal async static Task RefreshListAsync()
         {
-            await Task.Run( async() =>
+            CredentialList.Clear();
+            await Task.Run(async() =>
             {
-                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                {
-                    CredentialList.Clear();
                     foreach (var i in Vault.RetrieveAll())
                     {
-                        CredentialList.Add(new VaultItem(i.UserName, i.Resource));
+                        await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                        {
+                            CredentialList.Add(new VaultItem(i.UserName, i.Resource));
+                        });
                     }
-                });
             });
         }
 

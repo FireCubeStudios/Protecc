@@ -96,6 +96,8 @@ namespace Protecc.Controls
 
         private void Content_Unloaded(object sender, RoutedEventArgs e) => TOTP.Dispose();
 
+        private void Content_Loaded(object sender, RoutedEventArgs e) => Bindings.Update();
+
         //private void Content_Loaded(object sender, RoutedEventArgs e) => TOTP = new TOTPHelper(CodeBlock, Progress, AccountVaultItem);
     }
 }

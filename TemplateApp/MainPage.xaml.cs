@@ -39,7 +39,6 @@ namespace Protecc
         {
             this.InitializeComponent();
             WindowService.Initialize(AppTitleBar, AppTitle);
-            CredentialService.RefreshListAsync();
         }
 
         private void EnterKey_Click(object sender, RoutedEventArgs e)

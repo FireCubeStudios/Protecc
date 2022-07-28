@@ -1,6 +1,7 @@
 ﻿using Microsoft.Toolkit.Uwp.Helpers;
 using Protecc.Classes;
 using Protecc.Helpers;
+using Protecc.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,7 +46,7 @@ namespace Protecc
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected override async void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
@@ -86,6 +87,7 @@ namespace Protecc
                     }
                     else
                     {
+                        await CredentialService.RefreshListAsync();
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);
                     }
                 }

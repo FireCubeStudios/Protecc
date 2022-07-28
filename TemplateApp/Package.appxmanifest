@@ -11,15 +11,15 @@
   IgnorableNamespaces="uap mp desktop4 iot2 uap6 uap5">
 
   <Identity
-    Name="Protecc"
+    Name="2505FireCubeStudios.Protecc"
     Publisher="CN=3C7C8FC9-7104-4B33-8730-EE1E929D5D3B"
-    Version="1.0.0.0" />
+    Version="1.1.1.0" />
 
-  <mp:PhoneIdentity PhoneProductId="e3f36133-68dc-4b7d-872c-2b821a74e343" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="183d9ae7-7ffb-4072-8b75-4b99c3fc7fe7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Protecc</DisplayName>
-    <PublisherDisplayName>ayush</PublisherDisplayName>
+    <PublisherDisplayName>FireCubeStudios</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

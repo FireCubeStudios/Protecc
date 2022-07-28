@@ -9,7 +9,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls" 
     xmlns:icons="using:Fluent.Icons"
     xmlns:Materials="using:CubeKit.UI.Materials"
-    NavigationCacheMode="Enabled"
+    
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
     <Page.Resources>

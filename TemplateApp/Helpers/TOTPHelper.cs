@@ -66,13 +66,13 @@ namespace Protecc.Helpers
         private int Digits;
         public TOTPHelper(VaultItem vault)
         {
-            Time = DataHelper.DecodeTime(vault.Resource);
-            Maximum = Time;
-            Digits = DataHelper.DecodeDigits(vault.Resource);
-            Maximum = Time - 1;
-            OTP = new Totp(CredentialService.GetKey(vault), step:Time, DataHelper.DecodeEncryption(vault.Resource), totpSize:Digits);
-            Code = FormatCode(OTP.ComputeTotp(DateTime.UtcNow));
-            PeriodicTimer = ThreadPoolTimer.CreatePeriodicTimer(TimerElapsed, TimeSpan.FromMilliseconds(1000));
+                Time = DataHelper.DecodeTime(vault.Resource);
+                Maximum = Time;
+                Digits = DataHelper.DecodeDigits(vault.Resource);
+                Maximum = Time - 1;
+                OTP = new Totp(CredentialService.GetKey(vault), step: Time, DataHelper.DecodeEncryption(vault.Resource), totpSize: Digits);
+                Code = FormatCode(OTP.ComputeTotp(DateTime.UtcNow));
+                PeriodicTimer = ThreadPoolTimer.CreatePeriodicTimer(TimerElapsed, TimeSpan.FromMilliseconds(1000));
         }
 
         private async void TimerElapsed(ThreadPoolTimer timer)
