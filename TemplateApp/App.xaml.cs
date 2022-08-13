@@ -82,14 +82,9 @@ namespace Protecc
                         rootFrame.Navigate(typeof(OOBEPage), e.Arguments);
                     }
                     else if(new SettingsClass().WindowsHello)
-                    {
                         rootFrame.Navigate(typeof(WindowsHelloPage), e.Arguments);
-                    }
                     else
-                    {
-                        await CredentialService.RefreshListAsync();
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                    }
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
