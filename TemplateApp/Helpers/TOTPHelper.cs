@@ -13,6 +13,7 @@ using TextBlockFX;
 using TextBlockFX.Win2D.UWP;
 using TextBlockFX.Win2D.UWP.Effects;
 using Windows.ApplicationModel.Core;
+using Windows.Security.Credentials;
 using Windows.System.Threading;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
@@ -66,6 +67,8 @@ namespace Protecc.Helpers
         private int Digits;
         public TOTPHelper(VaultItem vault)
         {
+            try
+            {
                 Time = DataHelper.DecodeTime(vault.Resource);
                 Maximum = Time;
                 Digits = DataHelper.DecodeDigits(vault.Resource);
@@ -73,6 +76,12 @@ namespace Protecc.Helpers
                 OTP = new Totp(CredentialService.GetKey(vault), step: Time, DataHelper.DecodeEncryption(vault.Resource), totpSize: Digits);
                 Code = FormatCode(OTP.ComputeTotp(DateTime.UtcNow));
                 PeriodicTimer = ThreadPoolTimer.CreatePeriodicTimer(TimerElapsed, TimeSpan.FromMilliseconds(1000));
+            }
+            catch
+            {
+              //  PasswordVault Vault = new PasswordVault();
+             //   Debug.WriteLine(Vault.Retrieve(vault.Resource, vault.Name).Password);
+            }
         }
 
         private async void TimerElapsed(ThreadPoolTimer timer)
@@ -102,7 +111,17 @@ namespace Protecc.Helpers
             }
         }
 
-        public void Dispose() => PeriodicTimer.Cancel();
+        public void Dispose()
+        {
+            try
+            {
+                PeriodicTimer.Cancel();
+            }
+            catch
+            {
+
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected async virtual void OnPropertyChanged(string propertyName)

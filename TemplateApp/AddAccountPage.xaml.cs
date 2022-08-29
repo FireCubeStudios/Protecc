@@ -45,7 +45,7 @@ namespace Protecc
                 NameBox.Foreground = RedLinearGradientBrush;
                 NameBox.Focus(FocusState.Programmatic);
             }
-            else if(KeyBox.Password == "")
+            else if(String.IsNullOrEmpty(KeyBox.Password) || String.IsNullOrWhiteSpace(KeyBox.Password) || KeyBox.Password.Length < 2)
             { 
                 KeyBox.Foreground = RedLinearGradientBrush;
                 KeyBox.Focus(FocusState.Programmatic);
@@ -54,7 +54,9 @@ namespace Protecc
             {
                 try
                 {
-                    Base32Encoding.ToBytes(KeyBox.Password); // Validate key
+                    var baseKey = Base32Encoding.ToBytes(KeyBox.Password); // Validate key
+                    Totp OTP = new Totp(baseKey); // Validate safety
+                    OTP = null;
                 }
                 catch
                 {

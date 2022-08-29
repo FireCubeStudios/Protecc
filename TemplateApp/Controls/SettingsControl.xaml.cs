@@ -47,7 +47,7 @@ namespace Protecc.Controls
             rootFrame.Navigate(typeof(OOBEPage));
         }
         
-        private async void GitHub_Click(object sender, RoutedEventArgs e) => await Windows.System.Launcher.LaunchUriAsync(new Uri("https://github.com/FireCubeStudios-Community/FlowBoard-FireCube-Edition"));
+        private async void GitHub_Click(object sender, RoutedEventArgs e) => await Windows.System.Launcher.LaunchUriAsync(new Uri("https://github.com/FireCubeStudios/Protecc"));
 
         private async void Discord_Click(object sender, RoutedEventArgs e) => await Windows.System.Launcher.LaunchUriAsync(new Uri("https://discord.gg/3WYcKat"));
     }
