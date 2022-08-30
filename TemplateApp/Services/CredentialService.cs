@@ -57,13 +57,13 @@ namespace Protecc.Services
             CredentialList.Clear();
             await Task.Run(async() =>
             {
-                    foreach (var i in Vault.RetrieveAll())
+                foreach (var i in Vault.RetrieveAll())
+                {
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                     {
-                        await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                        {
-                            CredentialList.Add(new VaultItem(i.UserName, i.Resource));
-                        });
-                    }
+                        CredentialList.Add(new VaultItem(i.UserName, i.Resource));
+                    });
+                }
             });
         }
 
