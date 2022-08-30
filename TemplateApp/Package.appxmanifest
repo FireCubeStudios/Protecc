@@ -13,7 +13,7 @@
   <Identity
     Name="2505FireCubeStudios.Protecc"
     Publisher="CN=3C7C8FC9-7104-4B33-8730-EE1E929D5D3B"
-    Version="1.1.1.0" />
+    Version="1.1.5.0" />
 
   <mp:PhoneIdentity PhoneProductId="183d9ae7-7ffb-4072-8b75-4b99c3fc7fe7" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 

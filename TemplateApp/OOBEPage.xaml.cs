@@ -1,6 +1,7 @@
 ﻿using CubeKit.UI.Services;
 using Protecc.Classes;
 using Protecc.Helpers;
+using Protecc.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -50,11 +51,12 @@ namespace Protecc
             }
         }
 
-        private void CompletedOOBE_Click(object sender, RoutedEventArgs e)
+        private async void CompletedOOBE_Click(object sender, RoutedEventArgs e)
         {
             OpenRing.Visibility = Visibility.Visible;
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(MainPage));
+            await CredentialService.RefreshListAsync();
         }
 
         private void FlappyBird_SelectionChanged(object sender, SelectionChangedEventArgs e)

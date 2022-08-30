@@ -1,4 +1,5 @@
 ﻿using CubeKit.UI.Services;
+using Protecc.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -53,65 +54,34 @@ namespace Protecc
             var keyCreationResult = await KeyCredentialManager.RequestCreateAsync("Protecc", KeyCredentialCreationOption.ReplaceExisting);
             if (keyCreationResult.Status == KeyCredentialStatus.Success)
             {
-                var userKey = keyCreationResult.Credential;
-                var publicKey = userKey.RetrievePublicKey();
-                var keyAttestationResult = await userKey.GetAttestationAsync();
-                IBuffer keyAttestation = null;
-                IBuffer certificateChain = null;
-                bool keyAttestationIncluded = false;
-                bool keyAttestationCanBeRetrievedLater = false;
-
-                keyAttestationResult = await userKey.GetAttestationAsync();
-                KeyCredentialAttestationStatus keyAttestationRetryType = 0;
-
-                if (keyAttestationResult.Status == KeyCredentialAttestationStatus.Success)
-                {
-                    keyAttestationIncluded = true;
-                    keyAttestation = keyAttestationResult.AttestationBuffer;
-                    certificateChain = keyAttestationResult.CertificateChainBuffer;
-                    keyAttestationRetryType = KeyCredentialAttestationStatus.Success;
-                    Frame rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(MainPage));
-                }
-                else if (keyAttestationResult.Status == KeyCredentialAttestationStatus.TemporaryFailure)
-                {
-                    keyAttestationRetryType = KeyCredentialAttestationStatus.TemporaryFailure;
-                    keyAttestationCanBeRetrievedLater = true;
-                    Title.Text = "Authentication failed";
-                    Title.Foreground = RedLinearGradientBrush;
-                    Ring.Visibility = Visibility.Collapsed;
-                    AuthButton.Visibility = Visibility.Visible;
-                    Content.Background = new SolidColorBrush(Colors.Black);
-                    Aurora.Visibility = Visibility.Collapsed;
-                    RSOD.Visibility = Visibility.Visible;
-                }
-                else if (keyAttestationResult.Status == KeyCredentialAttestationStatus.NotSupported)
-                {
-                    keyAttestationRetryType = KeyCredentialAttestationStatus.NotSupported;
-                    keyAttestationCanBeRetrievedLater = true;
-                    Title.Text = "Authentication not supported";
-                    Title.Foreground = RedLinearGradientBrush;
-                    Ring.Visibility = Visibility.Collapsed;
-                    AuthButton.Visibility = Visibility.Visible;
-                    Content.Background = new SolidColorBrush(Colors.Black);
-                    Aurora.Visibility = Visibility.Collapsed;
-                    RSOD.Visibility = Visibility.Visible;
-                }
+                Frame rootFrame = Window.Current.Content as Frame;
+                rootFrame.Navigate(typeof(MainPage));
+                await CredentialService.RefreshListAsync();
             }
             else if (keyCreationResult.Status == KeyCredentialStatus.UserCanceled)
             {
-                // Show error message to the user to get confirmation that user
-                // does not want to enroll.
-                Title.Text = "Authentication cancelled";
-                Title.Foreground = RedLinearGradientBrush;
-                Ring.Visibility = Visibility.Collapsed;
-                AuthButton.Visibility = Visibility.Visible;
-                Content.Background = new SolidColorBrush(Colors.Black);
-                Aurora.Visibility = Visibility.Collapsed;
-                RSOD.Visibility = Visibility.Visible;
+                Error("Authentication cancelled");
+            }
+            else if(keyCreationResult.Status == KeyCredentialStatus.UnknownError)
+            {
+                Error("Unknown Error occurred");
+            }
+            else
+            {
+                Error("Something went wrong");
             }
         }
 
+        private void Error(string message)
+        {
+            Title.Text = message;
+            Title.Foreground = RedLinearGradientBrush;
+            Ring.Visibility = Visibility.Collapsed;
+            AuthButton.Visibility = Visibility.Visible;
+            Content.Background = new SolidColorBrush(Colors.Black);
+            Aurora.Visibility = Visibility.Collapsed;
+            RSOD.Visibility = Visibility.Visible;
+        }
         private void Authenticate_Click(object sender, RoutedEventArgs e) => Authenticate();
     }
 }
