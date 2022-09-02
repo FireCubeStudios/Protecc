@@ -1,5 +1,6 @@
 ## Protecc
 Protecc is a modern open source 2FA TOTP code authenticator client for Windows with a wide range of customization and privacy features such as Windows Hello support, privacy filter and export.
+
 [Store download](https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS)
 
   
