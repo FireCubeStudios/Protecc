@@ -9,3 +9,6 @@ Protecc is a modern open source 2FA TOTP code authenticator client for Windows w
   </p>
   
   https://github.com/kspearrin/Otp.NET
+  
+  ## Building notes
+  - If you get an error of certificate not found go open Package Manifest > Certificates and generate your own new one
