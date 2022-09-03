@@ -1,20 +1,10 @@
 ﻿using Protecc.Classes;
 using Protecc.Helpers;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Security.Credentials;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -39,7 +29,7 @@ namespace Protecc.Controls
             }
         }
 
-        private void Export_Click(object sender, RoutedEventArgs e) => ExportHelper.Export();
+        private async void Export_Click(object sender, RoutedEventArgs e) => await ExportHelper.Export();
 
         private void OOBE_Click(object sender, RoutedEventArgs e)
         {
@@ -47,8 +37,12 @@ namespace Protecc.Controls
             rootFrame.Navigate(typeof(OOBEPage));
         }
         
-        private async void GitHub_Click(object sender, RoutedEventArgs e) => await Windows.System.Launcher.LaunchUriAsync(new Uri("https://github.com/FireCubeStudios/Protecc"));
+        private IAsyncOperation<bool> OpenLink(string linkUrl) => Windows.System.Launcher.LaunchUriAsync(new Uri(linkUrl));
 
-        private async void Discord_Click(object sender, RoutedEventArgs e) => await Windows.System.Launcher.LaunchUriAsync(new Uri("https://discord.gg/3WYcKat"));
+        private async void GitHub_Click(object sender, RoutedEventArgs e) => await OpenLink("https://github.com/FireCubeStudios/Protecc");
+
+        private async void Discord_Click(object sender, RoutedEventArgs e) => await OpenLink("https://discord.gg/3WYcKat");
+
+        private async void Twitter_Click(object sender, RoutedEventArgs e) => await OpenLink("https://twitter.com/FireCubeStudios");
     }
 }
