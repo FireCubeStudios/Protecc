@@ -74,9 +74,9 @@ namespace Protecc.Services
             {
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
-                    CredentialList.Clear();
                     foreach (var i in Vault.RetrieveAll())
                     {
+                        i.RetrievePassword();
                         Accounts.Add(new Account() { 
                             Name = i.UserName,
                             Resource = i.Resource,
