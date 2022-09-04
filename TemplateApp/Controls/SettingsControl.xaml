@@ -30,7 +30,7 @@
                 <TextBlock FontSize="18">FireCube Twitter</TextBlock>
                 <TextBlock Opacity="0.7" FontSize="12">Follow for latest updates</TextBlock>
             </StackPanel>
-            <Button Width="80" Click="Discord_Click" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center">Join</Button>
+            <Button Width="80" Click="Twitter_Click" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Right" VerticalAlignment="Center">Follow</Button>
         </Grid>
         <MenuFlyoutSeparator Margin="0, 12, 0, 12"/>
         <TextBlock Opacity="0.7" FontSize="16">Settings</TextBlock>
