@@ -61,3 +61,7 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+# correctly show as a C# Project in GitHub
+*.html linguist-detectable=false
+*.cs linguist-detectable=true
