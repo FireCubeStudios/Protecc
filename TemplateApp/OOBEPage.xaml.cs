@@ -56,7 +56,6 @@ namespace Protecc
             OpenRing.Visibility = Visibility.Visible;
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(MainPage));
-            await CredentialService.RefreshListAsync();
         }
 
         private void FlappyBird_SelectionChanged(object sender, SelectionChangedEventArgs e)
