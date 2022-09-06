@@ -56,7 +56,7 @@ namespace Protecc
             {
                 Frame rootFrame = Window.Current.Content as Frame;
                 rootFrame.Navigate(typeof(MainPage));
-                await CredentialService.RefreshListAsync();
+               // await CredentialService.RefreshListAsync();
             }
             else if (keyCreationResult.Status == KeyCredentialStatus.UserCanceled)
             {

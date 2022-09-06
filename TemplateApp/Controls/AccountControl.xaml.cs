@@ -47,6 +47,11 @@ namespace Protecc.Controls
         public AccountControl()
         {
             this.InitializeComponent();
+            if (CredentialService.CredentialList.Count > 10) // Disable animated textbox for performance
+            {
+                UnloadObject(AnimatedCodeBlock);
+                FindName("CodeBlock");
+            }
             Bindings.Update();
             Window.Current.Activated += Current_Activated;
         }
@@ -82,7 +87,7 @@ namespace Protecc.Controls
             {
                 DataPackage dataPackage = new DataPackage();
                 dataPackage.RequestedOperation = DataPackageOperation.Copy;
-                dataPackage.SetText(CodeBlock.Text.Replace(" ", ""));
+                dataPackage.SetText(TOTP.Code.Replace(" ", ""));
                 Clipboard.SetContent(dataPackage);
                 CopyIcon.Symbol = Fluent.Icons.FluentSymbol.Checkmark20;
             }
@@ -97,6 +102,12 @@ namespace Protecc.Controls
         private void Content_Unloaded(object sender, RoutedEventArgs e) => TOTP.Dispose();
 
         private void Content_Loaded(object sender, RoutedEventArgs e) => Bindings.Update();
+
+        private void CodeBlock_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            Bindings.Update();
+        }
 
         //private void Content_Loaded(object sender, RoutedEventArgs e) => TOTP = new TOTPHelper(CodeBlock, Progress, AccountVaultItem);
     }

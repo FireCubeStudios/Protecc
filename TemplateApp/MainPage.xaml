@@ -41,7 +41,7 @@
             <Grid VerticalAlignment="Top">
                 <TextBlock FontSize="32" FontWeight="SemiBold">Your accounts</TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Loaded="AddButton_Loaded" IsTabStop="False" IsEnabled="{x:Bind Helpers:UIHelper.CanAddNew(), Mode=OneWay}" Style="{ThemeResource ToolbarButton}">
+                    <Button x:Name="AddButton" Loaded="AddButton_Loaded" IsTabStop="False" IsEnabled="{x:Bind Helpers:UIHelper.CanAddNew(), Mode=OneWay}" Style="{ThemeResource ToolbarButton}">
                         <StackPanel Orientation="Horizontal">
                             <icons:FluentSymbolIcon Symbol="Add20"/>
                             <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Text="Add"/>

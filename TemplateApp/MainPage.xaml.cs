@@ -62,6 +62,10 @@ namespace Protecc
         {
             await Task.Delay(500);
             ((Button)sender).IsTabStop = true; //Cursed workaround for focus on startup bug
+            if (CredentialService.CredentialList.Count >= 20) // Disable animated textbox for performance
+            {
+                AddButton.IsEnabled = false;
+            }
         }
     }
 }
