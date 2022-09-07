@@ -12,7 +12,7 @@
     xmlns:controls="using:Protecc.Controls" 
     xmlns:Helpers="using:Protecc.Helpers"
     xmlns:Classes="using:Protecc.Classes" 
-    xmlns:Services="using:Protecc.Services" xmlns:tbfx="using:TextBlockFX.Win2D.UWP" xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects"
+    xmlns:Services="using:Protecc.Services" xmlns:tbfx="using:TextBlockFX.Win2D.UWP" xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects" xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations" xmlns:interactivity="using:Microsoft.Xaml.Interactivity" xmlns:interactions="using:Microsoft.Xaml.Interactions.Core" xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Behaviors"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
     <Grid>
@@ -41,13 +41,23 @@
             <Grid VerticalAlignment="Top">
                 <TextBlock FontSize="32" FontWeight="SemiBold">Your accounts</TextBlock>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <ani:Explicit.Animations>
+                        <ani:AnimationSet x:Name="LoadAnimation">
+                            <ani:TranslationAnimation Duration="0:0:3" EasingType="Cubic" EasingMode="EaseInOut" To="0,0,0" From="0,32,0" />
+                        </ani:AnimationSet>
+                    </ani:Explicit.Animations>
+                    <interactivity:Interaction.Behaviors>
+                        <interactions:EventTriggerBehavior EventName="Loaded">
+                            <behaviors:StartAnimationAction Animation="{Binding ElementName=LoadAnimation}"/>
+                        </interactions:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
                     <Button x:Name="AddButton" Loaded="AddButton_Loaded" IsTabStop="False" IsEnabled="{x:Bind Helpers:UIHelper.CanAddNew(), Mode=OneWay}" Style="{ThemeResource ToolbarButton}">
                         <StackPanel Orientation="Horizontal">
                             <icons:FluentSymbolIcon Symbol="Add20"/>
                             <TextBlock Margin="8, 0, 0, 0" VerticalAlignment="Center" Text="Add"/>
                         </StackPanel>
                         <Button.Flyout>
-                            <MenuFlyout>
+                            <MenuFlyout Placement="Bottom">
                                 <MenuFlyoutItem Text="Scan QR" Click="ScanQR_Click"/>
                                 <MenuFlyoutItem Text="Enter Key" Click="EnterKey_Click"/>
                             </MenuFlyout>
