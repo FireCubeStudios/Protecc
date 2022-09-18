@@ -43,7 +43,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <ani:Explicit.Animations>
                         <ani:AnimationSet x:Name="LoadAnimation">
-                            <ani:TranslationAnimation Duration="0:0:3" EasingType="Cubic" EasingMode="EaseInOut" To="0,0,0" From="0,32,0" />
+                            <ani:TranslationAnimation Duration="0:0:2" EasingType="Cubic" EasingMode="EaseInOut" To="0,0,0" From="0,32,0" />
                         </ani:AnimationSet>
                     </ani:Explicit.Animations>
                     <interactivity:Interaction.Behaviors>
@@ -86,6 +86,14 @@
                         <controls:AccountControl AccountVaultItem="{x:Bind }"/>
                     </DataTemplate>
                 </GridView.ItemTemplate>
+                <GridView.ItemContainerTransitions>
+                    <TransitionCollection>
+                        <EntranceThemeTransition IsStaggeringEnabled="True" />
+                        <AddDeleteThemeTransition />
+                        <ContentThemeTransition />
+                    </TransitionCollection>
+                </GridView.ItemContainerTransitions>
+
             </GridView>
         </Grid>
         <Grid x:Name="Filter" x:Load="{x:Bind Helpers:UIHelper.NullBoolToBool(PrivacyButton.IsChecked), Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0, 126, 0, 0" Canvas.ZIndex="4" Background="{ThemeResource MicaBrush}">

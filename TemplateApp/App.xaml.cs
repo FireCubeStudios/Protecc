@@ -81,10 +81,18 @@ namespace Protecc
                         new SettingsClass().Setup();
                         rootFrame.Navigate(typeof(OOBEPage), e.Arguments);
                     }
-                    else if(new SettingsClass().WindowsHello)
+                    else if (SystemInformation.Instance.IsAppUpdated)
+                        rootFrame.Navigate(typeof(WhatsNewPage), e.Arguments);
+                    else if (new SettingsClass().LaunchCount == 4)
+                        rootFrame.Navigate(typeof(RatingsPage), e.Arguments);
+                    else if (new SettingsClass().WindowsHello)
+                    {
+                        new SettingsClass().Update();
                         rootFrame.Navigate(typeof(WindowsHelloPage), e.Arguments);
+                    }
                     else
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    new SettingsClass().LaunchCount++;
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

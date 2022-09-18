@@ -26,12 +26,23 @@ namespace Protecc.Classes
             get { return (bool)localSettings.Values["FocusBlur"]; }
             set { localSettings.Values["FocusBlur"] = value; }
         }
+        public int LaunchCount
+        {
+            get { return (int)localSettings.Values["LaunchCount"]; }
+            set { localSettings.Values["LaunchCount"] = value; }
+        }
 
         //  Used in first run
         public void Setup()
         {
             localSettings.Values["WindowsHello"] = localSettings.Values["LaunchBlur"] = false;
             localSettings.Values["FocusBlur"] = true;
+            localSettings.Values["LaunchCount"] = 1;
+        }
+
+        public void Update()
+        {
+            localSettings.Values["LaunchCount"] = 1;
         }
     }
 }

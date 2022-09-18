@@ -44,11 +44,13 @@ namespace Protecc
             {
                 NameBox.Foreground = RedLinearGradientBrush;
                 NameBox.Focus(FocusState.Programmatic);
+                NameLoadAnimation.Start();
             }
             else if(String.IsNullOrEmpty(KeyBox.Password) || String.IsNullOrWhiteSpace(KeyBox.Password) || KeyBox.Password.Length < 2)
             { 
                 KeyBox.Foreground = RedLinearGradientBrush;
                 KeyBox.Focus(FocusState.Programmatic);
+                PasswordLoadAnimation.Start();
             }
             else
             {
@@ -62,6 +64,7 @@ namespace Protecc
                 {
                     KeyBox.Foreground = RedLinearGradientBrush;
                     KeyBox.Focus(FocusState.Programmatic);
+                    PasswordLoadAnimation.Start();
                     Ring.Visibility = Visibility.Collapsed;
                     Content.Opacity = 1;
                     return;

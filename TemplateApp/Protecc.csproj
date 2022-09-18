@@ -151,6 +151,9 @@
     <Compile Include="OOBEPage.xaml.cs">
       <DependentUpon>OOBEPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RatingsPage.xaml.cs">
+      <DependentUpon>RatingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ScanQRPage.xaml.cs">
       <DependentUpon>ScanQRPage.xaml</DependentUpon>
     </Compile>
@@ -160,6 +163,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WhatsNewPage.xaml.cs">
+      <DependentUpon>WhatsNewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowsHelloPage.xaml.cs">
       <DependentUpon>WindowsHelloPage.xaml</DependentUpon>
     </Compile>
@@ -256,7 +262,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RatingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ScanQRPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WhatsNewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -11,6 +11,11 @@
     xmlns:toolkit="using:Microsoft.Toolkit.Uwp.UI.Controls" 
     xmlns:Materials="using:CubeKit.UI.Materials"
     xmlns:ToolkitControls="using:CubeKit.UI.Controls.Toolkit"
+    xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:interactions="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Behaviors"
+    xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
     mc:Ignorable="d">
     <Page.Resources>
@@ -599,11 +604,33 @@
                     <TextBlock FontSize="24" FontWeight="SemiBold" Margin="0, 0, 0, 12" Foreground="{ThemeResource AccentLinearGradientBrush}">New Account</TextBlock>
                     <TextBlock FontWeight="SemiBold">Name:</TextBlock>
                     <toolkit:DropShadowPanel ShadowOpacity="0.4" OffsetX="4" CornerRadius="8" Margin="0, 12, 0, 16" OffsetY="4">
-                        <TextBox x:Name="NameBox" Height="20" Width="340" PlaceholderText="Enter your a name..." Style="{ThemeResource KeyGlowTextBox}"/>
+                        <TextBox x:Name="NameBox" Height="20" Width="340" PlaceholderText="Enter your a name..." Style="{ThemeResource KeyGlowTextBox}">
+                            <ani:Explicit.Animations>
+                                <ani:AnimationSet x:Name="NameLoadAnimation" IsSequential="True">
+                                    <ani:OffsetAnimation From="0" To="8,0,0" Duration="0:0:0.0625"/>
+                                    <ani:OffsetAnimation From="8,0,0" To="-8,0,0" Duration="0:0:0.125"/>
+                                    <ani:OffsetAnimation From="-8,0,0" To="6,0,0" Duration="0:0:0.109375"/>
+                                    <ani:OffsetAnimation From="6,0,0" To="-6,0,0" Duration="0:0:0.09375"/>
+                                    <ani:OffsetAnimation From="-6,0,0" To="2,0,0" Duration="0:0:0.0625"/>
+                                    <ani:OffsetAnimation From="-2,0,0" To="0,0,0" Duration="0:0:0.015625"/>
+                                </ani:AnimationSet>
+                            </ani:Explicit.Animations>
+                        </TextBox>
                     </toolkit:DropShadowPanel>
                     <TextBlock FontWeight="SemiBold">Key:</TextBlock>
                     <toolkit:DropShadowPanel ShadowOpacity="0.4" OffsetX="4" CornerRadius="8" Margin="0, 12, 0, 16" OffsetY="4">
-                        <PasswordBox x:Name="KeyBox" Width="340" PlaceholderText="0000-0000-0000-0000" Style="{ThemeResource KeyGlowPasswordBoxStyle}"/>
+                        <PasswordBox x:Name="KeyBox" Width="340" PlaceholderText="0000-0000-0000-0000" Style="{ThemeResource KeyGlowPasswordBoxStyle}">
+                            <ani:Explicit.Animations>
+                                <ani:AnimationSet x:Name="PasswordLoadAnimation" IsSequential="True">
+                                    <ani:OffsetAnimation From="0" To="8,0,0" Duration="0:0:0.0625"/>
+                                    <ani:OffsetAnimation From="8,0,0" To="-8,0,0" Duration="0:0:0.125"/>
+                                    <ani:OffsetAnimation From="-8,0,0" To="6,0,0" Duration="0:0:0.109375"/>
+                                    <ani:OffsetAnimation From="6,0,0" To="-6,0,0" Duration="0:0:0.09375"/>
+                                    <ani:OffsetAnimation From="-6,0,0" To="2,0,0" Duration="0:0:0.0625"/>
+                                    <ani:OffsetAnimation From="-2,0,0" To="0,0,0" Duration="0:0:0.015625"/>
+                                </ani:AnimationSet>
+                            </ani:Explicit.Animations>
+                        </PasswordBox>
                     </toolkit:DropShadowPanel>
                     <TextBlock FontWeight="SemiBold">Color:</TextBlock>
                     <StackPanel Orientation="Horizontal" Margin="8, 12, 0, 12">
