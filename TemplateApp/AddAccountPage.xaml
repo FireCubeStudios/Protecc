@@ -604,7 +604,7 @@
                     <TextBlock FontSize="24" FontWeight="SemiBold" Margin="0, 0, 0, 12" Foreground="{ThemeResource AccentLinearGradientBrush}">New Account</TextBlock>
                     <TextBlock FontWeight="SemiBold">Name:</TextBlock>
                     <toolkit:DropShadowPanel ShadowOpacity="0.4" OffsetX="4" CornerRadius="8" Margin="0, 12, 0, 16" OffsetY="4">
-                        <TextBox x:Name="NameBox" Height="20" Width="340" PlaceholderText="Enter your a name..." Style="{ThemeResource KeyGlowTextBox}">
+                        <TextBox x:Name="NameBox" Height="20" Width="340" PlaceholderText="Enter a name..." Style="{ThemeResource KeyGlowTextBox}">
                             <ani:Explicit.Animations>
                                 <ani:AnimationSet x:Name="NameLoadAnimation" IsSequential="True">
                                     <ani:OffsetAnimation From="0" To="8,0,0" Duration="0:0:0.0625"/>
