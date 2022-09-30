@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://store-images.s-microsoft.com/image/apps.299.14273821654312693.8dbd6f2d-c24c-4a0d-b1e7-e76da9a48306.262a77d4-c2a5-40f4-bdea-2e4c7849f556" alt="Picture" style="display: block; margin: 0 auto; height: 80px;width:85px"/>
+<img src="https://store-images.s-microsoft.com/image/apps.299.14273821654312693.8dbd6f2d-c24c-4a0d-b1e7-e76da9a48306.262a77d4-c2a5-40f4-bdea-2e4c7849f556" alt="Picture" style="display: block; margin: 0 auto; height: 180px;width:185px"/>
 </div>
 
 <div align="center">
