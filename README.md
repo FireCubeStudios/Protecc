@@ -10,7 +10,11 @@
 <a href="https://github.com/FireCubeStudios/Protecc/issues"><img src="https://img.shields.io/github/issues/FireCubeStudios/Protecc"></a>
 <a href="https://github.com/FireCubeStudios/Protecc/fork"><img src="https://img.shields.io/github/forks/FireCubeStudios/Protecc"></a>
 <a href="https://github.com/FireCubeStudios/Protecc/stargazers/"><img src="https://img.shields.io/github/stars/FireCubeStudios/Protecc"></a>
-
+<script type="module" src="https://getbadgecdn.azureedge.net/ms-store-badge.bundled.js"></script>
+<ms-store-badge
+	productid="9PJX91M06TZS"
+	animation="on">
+</ms-store-badge>
 <p style="font-size:15px;">Protecc is a modern open source 2FA TOTP code authenticator client for Windows with a wide range of customization and privacy features such as Windows Hello support, privacy filter and export.</p>
 </div>
 
