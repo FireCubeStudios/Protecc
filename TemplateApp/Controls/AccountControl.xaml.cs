@@ -1,4 +1,5 @@
-﻿using Protecc.Classes;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using Protecc.Classes;
 using Protecc.Helpers;
 using Protecc.Services;
 using System;
@@ -110,5 +111,28 @@ namespace Protecc.Controls
         }
 
         //private void Content_Loaded(object sender, RoutedEventArgs e) => TOTP = new TOTPHelper(CodeBlock, Progress, AccountVaultItem);
+
+        /// <summary>
+        /// Copies displayed code to clipboard and displays Windows notification.
+        /// </summary>
+        private void Content_DoubleTapped(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Remove spaces and copy to clipboard
+                var content = new DataPackage();
+                content.RequestedOperation = DataPackageOperation.Copy;
+                content.SetText(TOTP.Code.Replace(" ", ""));
+                Clipboard.SetContent(content);
+
+                // Show notification
+                new ToastContentBuilder().AddText("Code copied to clipboard!").Show();
+            }
+            catch
+            {
+                // Inform user about error
+                new ToastContentBuilder().AddText("An error occurred while copying to clipboard.").Show();
+            }
+        }
     }
 }
