@@ -103,10 +103,15 @@ namespace Protecc.Controls
                 dataPackage.SetText(TOTP.Code.Replace(" ", ""));
                 Clipboard.SetContent(dataPackage);
                 CopyIcon.Symbol = Fluent.Icons.FluentSymbol.Checkmark20;
+                // Show notification
+                InAppNotificationComponent.Show("Code copied to clipboard!", 3000);
             }
             catch
             {
                 CopyIcon.Symbol = Fluent.Icons.FluentSymbol.ErrorCircle20;
+                // Inform user about error
+                InAppNotificationComponent.Show("An error occurred while copying to clipboard.", 3000);
+
             }
             await Task.Delay(2000);
             CopyIcon.Symbol = Fluent.Icons.FluentSymbol.Copy20;
