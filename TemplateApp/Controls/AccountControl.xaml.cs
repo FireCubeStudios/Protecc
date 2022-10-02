@@ -1,4 +1,5 @@
-﻿using Protecc.Classes;
+﻿using Microsoft.Toolkit.Uwp.UI.Controls;
+using Protecc.Classes;
 using Protecc.Helpers;
 using Protecc.Services;
 using System;
@@ -36,13 +37,25 @@ namespace Protecc.Controls
         public VaultItem AccountVaultItem
         {
             get { return (VaultItem)GetValue(AccountVaultItemProperty); }
-            set { 
+            set
+            {
                 SetValue(AccountVaultItemProperty, value);
                 TOTP = new TOTPHelper(AccountVaultItem);
             }
         }
         public static readonly DependencyProperty AccountVaultItemProperty =
                    DependencyProperty.Register("AccountVaultItem", typeof(VaultItem), typeof(AccountControl), null);
+
+        public InAppNotification InAppNotificationComponent
+        {
+            get { return (InAppNotification)GetValue(InAppNotificationComponentProperty); }
+            set
+            {
+                SetValue(InAppNotificationComponentProperty, value);
+            }
+        }
+        public static readonly DependencyProperty InAppNotificationComponentProperty =
+                   DependencyProperty.Register("InAppNotificationComponent", typeof(InAppNotification), typeof(AccountControl), null);
 
         public AccountControl()
         {
@@ -90,10 +103,15 @@ namespace Protecc.Controls
                 dataPackage.SetText(TOTP.Code.Replace(" ", ""));
                 Clipboard.SetContent(dataPackage);
                 CopyIcon.Symbol = Fluent.Icons.FluentSymbol.Checkmark20;
+                // Show notification
+                InAppNotificationComponent.Show("Code copied to clipboard!", 3000);
             }
             catch
             {
                 CopyIcon.Symbol = Fluent.Icons.FluentSymbol.ErrorCircle20;
+                // Inform user about error
+                InAppNotificationComponent.Show("An error occurred while copying to clipboard.", 3000);
+
             }
             await Task.Delay(2000);
             CopyIcon.Symbol = Fluent.Icons.FluentSymbol.Copy20;
@@ -110,5 +128,28 @@ namespace Protecc.Controls
         }
 
         //private void Content_Loaded(object sender, RoutedEventArgs e) => TOTP = new TOTPHelper(CodeBlock, Progress, AccountVaultItem);
+
+        /// <summary>
+        /// Copies displayed code to clipboard and displays Windows notification.
+        /// </summary>
+        private void Content_DoubleTapped(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                // Remove spaces and copy to clipboard
+                var content = new DataPackage();
+                content.RequestedOperation = DataPackageOperation.Copy;
+                content.SetText(TOTP.Code.Replace(" ", ""));
+                Clipboard.SetContent(content);
+
+                // Show notification
+                InAppNotificationComponent.Show("Code copied to clipboard!", 3000);
+            }
+            catch
+            {
+                // Inform user about error
+                InAppNotificationComponent.Show("An error occurred while copying to clipboard.", 3000);
+            }
+        }
     }
 }

@@ -83,7 +83,7 @@
             <GridView x:Name="AccountsView" ItemContainerStyle="{ThemeResource CardContainer}" SelectionChanged="AccountsView_SelectionChanged" ItemsSource="{x:Bind Services:CredentialService.CredentialList, Mode=OneWay}" SelectionMode="Single" VerticalAlignment="Top" Margin="-8, 86, -50, 0" HorizontalAlignment="Left">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="Classes:VaultItem">
-                        <controls:AccountControl AccountVaultItem="{x:Bind }"/>
+                        <controls:AccountControl AccountVaultItem="{x:Bind }" InAppNotificationComponent="{Binding ElementName=InAppNotificationComponent}"/>
                     </DataTemplate>
                 </GridView.ItemTemplate>
                 <GridView.ItemContainerTransitions>
@@ -103,5 +103,6 @@
                 </Grid.Background>
             </Grid>
         </Grid>
+        <toolkit:InAppNotification Name="InAppNotificationComponent" />
     </Grid>
 </Page>

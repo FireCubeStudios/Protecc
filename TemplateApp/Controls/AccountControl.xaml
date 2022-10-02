@@ -17,7 +17,7 @@
     xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Behaviors"
     xmlns:ui="using:Microsoft.Toolkit.Uwp.UI"
     mc:Ignorable="d">
-    <StackPanel Width="300" Loaded="Content_Loaded" Unloaded="Content_Unloaded">
+    <StackPanel Width="300" Loaded="Content_Loaded" Unloaded="Content_Unloaded" DoubleTapped="Content_DoubleTapped">
         <Grid CornerRadius="8" Padding="12, 12, 12, 0" Margin="0, 0, 0, 8" Height="80" BorderThickness="1" Canvas.ZIndex="3">
             <TextBlock MaxWidth="210" Opacity="0.7" TextTrimming="CharacterEllipsis" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Text="{x:Bind AccountVaultItem.Name, Mode=OneWay}"/>
             <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="200" Height="80" Margin="0, 0, 0, -20" >
