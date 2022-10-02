@@ -1,4 +1,4 @@
-﻿using Microsoft.Toolkit.Uwp.Notifications;
+﻿using Microsoft.Toolkit.Uwp.UI.Controls;
 using Protecc.Classes;
 using Protecc.Helpers;
 using Protecc.Services;
@@ -37,13 +37,25 @@ namespace Protecc.Controls
         public VaultItem AccountVaultItem
         {
             get { return (VaultItem)GetValue(AccountVaultItemProperty); }
-            set { 
+            set
+            {
                 SetValue(AccountVaultItemProperty, value);
                 TOTP = new TOTPHelper(AccountVaultItem);
             }
         }
         public static readonly DependencyProperty AccountVaultItemProperty =
                    DependencyProperty.Register("AccountVaultItem", typeof(VaultItem), typeof(AccountControl), null);
+
+        public InAppNotification InAppNotificationComponent
+        {
+            get { return (InAppNotification)GetValue(InAppNotificationComponentProperty); }
+            set
+            {
+                SetValue(InAppNotificationComponentProperty, value);
+            }
+        }
+        public static readonly DependencyProperty InAppNotificationComponentProperty =
+                   DependencyProperty.Register("InAppNotificationComponent", typeof(InAppNotification), typeof(AccountControl), null);
 
         public AccountControl()
         {
@@ -126,12 +138,12 @@ namespace Protecc.Controls
                 Clipboard.SetContent(content);
 
                 // Show notification
-                new ToastContentBuilder().AddText("Code copied to clipboard!").Show();
+                InAppNotificationComponent.Show("Code copied to clipboard!", 3000);
             }
             catch
             {
                 // Inform user about error
-                new ToastContentBuilder().AddText("An error occurred while copying to clipboard.").Show();
+                InAppNotificationComponent.Show("An error occurred while copying to clipboard.", 3000);
             }
         }
     }
