@@ -24,7 +24,7 @@
   </p>
 
 
-<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="60%" src="asset\Get_it_from_Microsoft_Badge.svg" alt="Get Protecc from Microsoft Store"></a>
+<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="asset\Get_it_from_Microsoft_Badge.svg" alt="Get Protecc from Microsoft Store"></a>
   
 https://github.com/kspearrin/Otp.NET
   
