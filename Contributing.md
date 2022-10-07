@@ -6,6 +6,13 @@ Please go through the [Code of Conduct](/CODE_OF_CONDUCT.md).
 # Submitting Contributions👩‍💻👨‍💻
 Below you will find the process and workflow used to review and merge your changes.
 
+## Project prerequisites
+- Visual Studio with UWP toolset.
+- Atleast 18362 target platform version
+
+## Building notes
+- If you get an error of certificate not found go open Package Manifest > Certificates and generate your own new one
+
 ## Step 1 : Find an issue
 - Take a look at the Existing issues or create your **own** issues!
 - Wait for the issue to be assigned to you after which you can start working on it.
