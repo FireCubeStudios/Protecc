@@ -5,42 +5,43 @@
 <div align="center">
 <h1>Protecc</h1>
 
-<a href="https://github.com/FireCubeStudios/Protecc"><img src="https://img.shields.io/badge/Contributions-welcome-green"></a> 
+<a href="https://github.com/FireCubeStudios/Protecc"><img src="https://img.shields.io/badge/欢迎您的-贡献-green"></a> 
 
 <a href="https://github.com/FireCubeStudios/Protecc/issues"><img src="https://img.shields.io/github/issues/FireCubeStudios/Protecc"></a>
 <a href="https://github.com/FireCubeStudios/Protecc/fork"><img src="https://img.shields.io/github/forks/FireCubeStudios/Protecc"></a>
 <a href="https://github.com/FireCubeStudios/Protecc/stargazers/"><img src="https://img.shields.io/github/stars/FireCubeStudios/Protecc"></a>
 
-**English** | [Simplified Chinese(简体中文)](README.zh-CN.md)
+[English](README.md) | **Simplified Chinese(简体中文)**
 
-<p style="font-size:15px;">Protecc is a modern open source 2FA TOTP code authenticator client for Windows with a wide range of customization and privacy features such as Windows Hello support, privacy filter and export.</p>
+<p style="font-size:15px;">Protecc 是一个在 Windows 上的开源两步验证器。支持几乎所有使用 TOTP 算法的账号，还有一些内置的隐私保护措施，例如隐私屏障和代码模糊。</p>
 </div>
 
 
-# Preview ✨
+# 看看你的 👀
 
 <p align="center">
   <img align="center" src="https://store-images.s-microsoft.com/image/apps.36005.14273821654312693.614a2153-2264-4640-872a-02a2690944dd.0647a0bf-af72-4d44-b0c9-7e097abaa082">
   </p>
 
+<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="60%" src="asset\Get_it_from_Microsoft_Badge.svg" alt="从微软商店下载 Protecc"></a>
 
-<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="60%" src="asset\Get_it_from_Microsoft_Badge.svg" alt="Get Protecc from Microsoft Store"></a>
+使用了 [kspearrin / Otp.NET](https://github.com/kspearrin/Otp.NET) 的代码。
   
-https://github.com/kspearrin/Otp.NET
-  
-  ### Building notes
-  - If you get an error of certificate not found go open Package Manifest > Certificates and generate your own new one
+  ### 构建说明
+  - 如果有未找到证书的错误，打开 Package Manifest > Certificates 生成自己的证书。
 
-# Meet our contributors
+# 贡献者
 
 <a href="https://github.com/FireCubeStudios/Protecc/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=FireCubeStudios/Protecc" />
 </a>
 
-# License 🔐
+# 许可证
+
+版权所有 © Fire Cube Studios 保留所有权利。
 
 Copyright (c) Fire Cube Studios. All rights reserved.
 
-Licensed under the [MIT LICENSE](LICENSE.txt)
+使用 [MIT LICENSE](LICENSE.txt) 许可证。
 
 
