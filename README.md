@@ -31,16 +31,23 @@ https://github.com/kspearrin/Otp.NET
   ### Building notes
   - If you get an error of certificate not found go open Package Manifest > Certificates and generate your own new one
 
+## Discussions
+- Feel free to join our [discussions](https://github.com/FireCubeStudios/Protecc/discussions)
+
 # Meet our contributors
 
 <a href="https://github.com/FireCubeStudios/Protecc/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=FireCubeStudios/Protecc" />
 </a>
 
-# License 🔐
 
-Copyright (c) Fire Cube Studios. All rights reserved.
+<hr>
+<h6 align="center">© Fire Cube Studios. 2022 
+<br>
+All Rights Reserved</h6>
+<p align="center">
+	<a href="https://github.com/FireCubeStudios/Protecc/blob/master/LICENSE.txt"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a>
+</p>
 
-Licensed under the [MIT LICENSE](LICENSE.txt)
 
 
