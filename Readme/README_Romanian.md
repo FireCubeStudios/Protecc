@@ -22,7 +22,7 @@
   </p>
 
 
-<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" alt="Click aici"></a> pentru a descărca.
+<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS">Click aici</a> pentru a descărca.
   
 https://github.com/kspearrin/Otp.NET
   
