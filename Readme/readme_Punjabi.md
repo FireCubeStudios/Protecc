@@ -40,5 +40,5 @@ https://github.com/kspearrin/Otp.NET
 
 ਕਾਪੀਰਾਈਟ (c) ਫਾਇਰ ਕਿਊਬ ਸਟੂਡੀਓਜ਼। ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ।
 
-[MIT LICENSE] ਅਧੀਨ ਲਾਇਸੰਸਸ਼ੁਦਾ ਹੈ । (LICENSE.txt)
+[MIT LICENSE] ਅਧੀਨ ਲਾਇਸੰਸਸ਼ੁਦਾ ਹੈ । (https://github.com/BootVirtual/Protecc/blob/master/LICENSE.txt)
 
