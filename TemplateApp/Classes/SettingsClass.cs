@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
+using Windows.UI.ViewManagement;
 
 namespace Protecc.Classes
 {
     public class SettingsClass
     {
-        private ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        private ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
         public bool WindowsHello
         {
@@ -26,6 +27,15 @@ namespace Protecc.Classes
             get { return (bool)localSettings.Values["FocusBlur"]; }
             set { localSettings.Values["FocusBlur"] = value; }
         }
+        public bool CanRecord
+        {
+            get { return (bool)localSettings.Values["CanRecord"]; }
+            set { 
+                localSettings.Values["CanRecord"] = value;
+                ApplicationView View = ApplicationView.GetForCurrentView();
+                View.IsScreenCaptureEnabled = (bool)value;
+            }
+        }
         public int LaunchCount
         {
             get { return (int)localSettings.Values["LaunchCount"]; }
@@ -35,14 +45,14 @@ namespace Protecc.Classes
         //  Used in first run
         public void Setup()
         {
-            localSettings.Values["WindowsHello"] = localSettings.Values["LaunchBlur"] = false;
+            localSettings.Values["WindowsHello"] = localSettings.Values["CanRecord"] = localSettings.Values["LaunchBlur"] = false;
             localSettings.Values["FocusBlur"] = true;
             localSettings.Values["LaunchCount"] = 1;
         }
 
         public void Update()
         {
-            localSettings.Values["LaunchCount"] = 1;
+            localSettings.Values["CanRecord"] = false;
         }
     }
 }
