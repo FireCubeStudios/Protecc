@@ -36,9 +36,9 @@ https://github.com/kspearrin/Otp.NET
 </a>
 
 # Licencia 🔐
-
-Copyright (c) Fire Cube Studios. Todos los derechos reservados.
-
 Licenciado bajo el [MIT LICENSE](LICENSE.txt)
 
-
+<hr>
+<h6 align="center">© Fire Cube Studios.
+<br>
+Todos los derechos reservados.</h6>
