@@ -13,6 +13,8 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -76,14 +78,16 @@ namespace Protecc
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
+                    SettingsClass Settings = new();
                     if (SystemInformation.Instance.IsFirstRun)
                     {
-                        new SettingsClass().Setup();
+                        ApplicationData.Current.LocalSettings.Values["LaunchCount"] = 1;
+                        Settings.Setup();
                         rootFrame.Navigate(typeof(OOBEPage), e.Arguments);
                     }
                     else if (SystemInformation.Instance.IsAppUpdated)
                     {
-                        new SettingsClass().Update();
+                        Settings.Update();
                         rootFrame.Navigate(typeof(WhatsNewPage), e.Arguments);
                     }
                     else if (new SettingsClass().LaunchCount == 4)
@@ -92,7 +96,9 @@ namespace Protecc
                         rootFrame.Navigate(typeof(WindowsHelloPage), e.Arguments);
                     else
                         rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                    new SettingsClass().LaunchCount++;
+                        Settings.LaunchCount++;
+                    ApplicationView View = ApplicationView.GetForCurrentView();
+                    View.IsScreenCaptureEnabled = Settings.CanRecord;
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
