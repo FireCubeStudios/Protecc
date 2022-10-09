@@ -11,7 +11,7 @@
 <a href="https://github.com/FireCubeStudios/Protecc/fork"><img src="https://img.shields.io/github/forks/FireCubeStudios/Protecc"></a>
 <a href="https://github.com/FireCubeStudios/Protecc/stargazers/"><img src="https://img.shields.io/github/stars/FireCubeStudios/Protecc"></a>
 
-[English](https://github.com/FireCubeStudios/Protecc/blob/master/README.md) | [Simplified Chinese(简体中文)](https://github.com/FireCubeStudios/Protecc/blob/master/README.zh-CN.md) | **Русский** | [Deutsch](https://github.com/BootVirtual/Protecc/blob/master/Readme/Readme_German.md) | [Español](https://github.com/BootVirtual/Protecc/blob/master/Readme/README_Spanish.md) | [हिन्दी](https://github.com/BootVirtual/Protecc/blob/master/Readme/readme_hindi.md)
+[English](https://github.com/FireCubeStudios/Protecc/blob/master/README.md) | [Simplified Chinese(简体中文)](https://github.com/FireCubeStudios/Protecc/blob/master/README.zh-CN.md) | **Русский** | [Deutsch](https://github.com/BootVirtual/Protecc/blob/master/Readme/Readme_German.md) | [Español](https://github.com/BootVirtual/Protecc/blob/master/Readme/README_Spanish.md) | [हिन्दी](https://github.com/BootVirtual/Protecc/blob/master/Readme/readme_hindi.md) | [ਪੰਜਾਬੀ](https://github.com/FireCubeStudios/Protecc/blob/master/Readme/readme_Punjabi.md)
 
 <p style="font-size:15px;">Protecc - это современный клиент двухфакторной аутентификации (2FA) для Windows с открытым исходным кодом. Клиент поддерживает алгоритм TOTP и имеет широкий набор функций по кастомизации и конфиденциальности, таких, как поддержка Windows Hello, фильтр конфиденциальности и экспорт.</p></div>
 
@@ -21,7 +21,7 @@
 </p>
 
 
-<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="assets\Get_it_from_Microsoft_Badge.svg" alt="Скачать Protecc из Microsoft Store"></a>
+<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="https://raw.githubusercontent.com/FireCubeStudios/Protecc/master/assets/Get_it_from_Microsoft_Badge.svg" alt="Скачать Protecc из Microsoft Store"></a>
 
 https://github.com/kspearrin/Otp.NET
   
