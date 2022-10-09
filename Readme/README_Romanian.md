@@ -22,7 +22,8 @@
   </p>
 
 
-<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS">Click aici</a> pentru a descărca.
+<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="https://raw.githubusercontent.com/FireCubeStudios/Protecc/d25873251047ef19605325e0184a848d409b92b4/assets/Get_it_from_Microsoft_Badge.svg" alt="
+Obțineți Protecc din Microsoft Store"></a>
   
 https://github.com/kspearrin/Otp.NET
   
@@ -39,6 +40,9 @@ https://github.com/kspearrin/Otp.NET
 
 # Licență 🔐
 
-Copyright (c) Fire Cube Studios. Toate drepturile rezervate.
-
 Licențiat sub [MIT LICENSE](LICENSE.txt)
+
+<hr>
+<h6 align="center">© Fire Cube Studios.
+<br>
+Toate drepturile rezervate.</h6>
