@@ -58,6 +58,13 @@
             </Grid>
             <Grid Padding="12, 4, 12, 4" Background="{ThemeResource LayerFillColorDefaultBrush}" Margin="4, 4, 0, 4" CornerRadius="4" BorderThickness="1" BorderBrush="{ThemeResource MicaBorderBrush}">
                 <StackPanel HorizontalAlignment="Left">
+                    <TextBlock Text="Screen capture" MaxWidth="220" FontWeight="SemiBold" Margin="0, 0, 0, 4"/>
+                    <TextBlock Text="Toggle screen capturing app" MaxWidth="220" Opacity="0.7" />
+                </StackPanel>
+                <ToggleSwitch x:Name="ScreenRec" IsOn="{x:Bind Settings.CanRecord, Mode=TwoWay}" Margin="4, 4, -80, 4" Style="{ThemeResource GlowSwitch}" HorizontalAlignment="Right"/>
+            </Grid>
+            <Grid Padding="12, 4, 12, 4" Background="{ThemeResource LayerFillColorDefaultBrush}" Margin="4, 4, 0, 4" CornerRadius="4" BorderThickness="1" BorderBrush="{ThemeResource MicaBorderBrush}">
+                <StackPanel HorizontalAlignment="Left">
                     <TextBlock Text="Export keys" MaxWidth="220" FontWeight="SemiBold" Margin="0, 0, 0, 4"/>
                     <TextBlock Text="Export keys as YAML" MaxWidth="220" Opacity="0.7" />
                 </StackPanel>
