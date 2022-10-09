@@ -38,10 +38,13 @@
 
 # 许可证
 
-版权所有 © Fire Cube Studios 保留所有权利。
-
-Copyright (c) Fire Cube Studios. All rights reserved.
-
 使用 [MIT LICENSE](LICENSE.txt) 许可证。
 
+
+<hr>
+<h6 align="center">© Fire Cube Studios. 2022
+<br>All rights reserved </h6>
+<h6 align="center">© Fire Cube Studios. 2022 
+<br>
+保留所有权利。</h6>
 
