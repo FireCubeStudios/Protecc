@@ -22,7 +22,7 @@
   </p>
 
 
-<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="https://raw.githubusercontent.com/FireCubeStudios/Protecc/d25873251047ef19605325e0184a848d409b92b4/assets/Get_it_from_Microsoft_Badge.svg" alt="
+<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="https://raw.githubusercontent.com/PeritusDeveloper/Protecc/51091b1b131adbfd5edb51f1040cc3fcc470a248/Assets/Get_it_from_Microsoft_Badge.svg" alt="
 Obțineți Protecc din Microsoft Store"></a>
   
 https://github.com/kspearrin/Otp.NET
