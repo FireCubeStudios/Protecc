@@ -31,8 +31,8 @@ https://github.com/kspearrin/Otp.NET
   ### Building notes
   - If you get an error of certificate not found go open Package Manifest > Certificates and generate your own new one
 
-## Discussions
-- Feel free to join our [discussions](https://github.com/FireCubeStudios/Protecc/discussions)
+## Discord
+- Join our [Discord Channel](https://discord.gg/87qnqRB)
 
 # Meet our contributors
 
