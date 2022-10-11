@@ -39,6 +39,34 @@ namespace Protecc.Services
             CredentialList.Add(new VaultItem(Name, Resource));
         }
 
+        /// <summary>
+        /// Edit existing credential and save it to Vault
+        /// </summary>
+        /// <param name="vaultItem"></param>
+        /// <param name="newName"></param>
+        /// <param name="newColor"></param>
+        protected internal static void EditCredential(VaultItem vaultItem, string newName, Color newColor)
+        {
+            // Retrieve required data
+            var password = Vault.Retrieve(vaultItem.Resource, vaultItem.Name).Password;
+
+            // Remove old item from vault and from UI
+            Vault.Remove(Vault.Retrieve(vaultItem.Resource, vaultItem.Name));
+            CredentialList.Remove(vaultItem);
+
+            // Create a new item and copy old properties
+            string Resource = DataHelper.EncodeEdited(
+                newColor, 
+                DataHelper.DecodeTime(vaultItem.Resource),
+                DataHelper.DecodeDigits(vaultItem.Resource),
+                DataHelper.DecodeEncryptionId(vaultItem.Resource)
+                );
+
+            //Save to credential vault and add to UI
+            Vault.Add(new PasswordCredential(Resource, newName, password));
+            CredentialList.Add(new VaultItem(newName, Resource));
+        }
+
         protected internal static byte[] GetKey(VaultItem vaultItem)
         {
             byte[] Key;

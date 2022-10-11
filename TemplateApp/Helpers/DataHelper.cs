@@ -38,5 +38,12 @@ namespace Protecc.Helpers
             else
                 return OtpHashMode.Sha512;
         }
+
+        public static int DecodeEncryptionId(string Resource) => Int32.Parse(Resource.Substring(9, 1));
+        /// <summary>
+        /// Encodes string using previously decoded values
+        /// </summary>
+        public static string EncodeEdited(Color color, int savedTime, int savedDigits, int savedEncryptionIndex) => color.ToString().Remove(0, 3) + savedTime + savedDigits + savedEncryptionIndex;
+
     }
 }
