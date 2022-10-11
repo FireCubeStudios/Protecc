@@ -35,8 +35,11 @@ https://github.com/kspearrin/Otp.NET
   <img src="https://contrib.rocks/image?repo=FireCubeStudios/Protecc" />
 </a>
 
-# Lizenz 🔐
-
-Copyright (c) Fire Cube Studios. Alle Rechte vorbehalten.
-
-Lizensiert unter der [MIT LICENSE](LICENSE.txt)
+<br>
+<hr>
+<h6 align="center">© Fire Cube Studios. 2022 
+<br>
+Alle Rechte vorbehalten</h6>
+<p align="center">
+	<a href="https://github.com/FireCubeStudios/Protecc/blob/master/LICENSE.txt"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=Lizenz&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a>
+</p>

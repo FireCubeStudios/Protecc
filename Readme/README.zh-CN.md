@@ -23,7 +23,7 @@
   <img align="center" src="https://store-images.s-microsoft.com/image/apps.36005.14273821654312693.614a2153-2264-4640-872a-02a2690944dd.0647a0bf-af72-4d44-b0c9-7e097abaa082">
   </p>
 
-<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="assets\Get_it_from_Microsoft_Badge.svg" alt="从微软商店下载 Protecc"></a>
+<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="https://raw.githubusercontent.com/PeritusDeveloper/Protecc/51091b1b131adbfd5edb51f1040cc3fcc470a248/Assets/Get_it_from_Microsoft_Badge.svg"></a>
 
 使用了 [kspearrin / Otp.NET](https://github.com/kspearrin/Otp.NET) 的代码。
   
@@ -38,10 +38,13 @@
 
 # 许可证
 
-版权所有 © Fire Cube Studios 保留所有权利。
-
-Copyright (c) Fire Cube Studios. All rights reserved.
-
 使用 [MIT LICENSE](LICENSE.txt) 许可证。
 
+
+<hr>
+<h6 align="center">© Fire Cube Studios. 2022
+<br>All rights reserved </h6>
+<h6 align="center">© Fire Cube Studios. 2022 
+<br>
+保留所有权利。</h6>
 

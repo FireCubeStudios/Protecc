@@ -21,7 +21,10 @@
 </p>
 
 
+
+
 <a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="https://raw.githubusercontent.com/FireCubeStudios/Protecc/master/assets/Get_it_from_Microsoft_Badge.svg" alt="Скачать Protecc из Microsoft Store"></a>
+
 
 https://github.com/kspearrin/Otp.NET
   
@@ -34,6 +37,10 @@ https://github.com/kspearrin/Otp.NET
 </a>
 
 # Лицензия 🔐
-© Fire Cube Studios. Все права защищены.  
-  
+ 
 Распространяется под [лицензией MIT (на английском)](https://github.com/BootVirtual/Protecc/blob/master/LICENSE.txt)
+
+<hr>
+<h6 align="center">© Fire Cube Studios.
+<br>
+Все права защищены.</h6>
