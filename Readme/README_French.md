@@ -11,7 +11,7 @@
 <a href="https://github.com/FireCubeStudios/Protecc/fork"><img src="https://img.shields.io/github/forks/FireCubeStudios/Protecc"></a>
 <a href="https://github.com/FireCubeStudios/Protecc/stargazers/"><img src="https://img.shields.io/github/stars/FireCubeStudios/Protecc"></a>
 
-<p style="font-size:15px;">Protecc est un client d'authentification moderne et open source 2FA TOTP pour Windows, doté d'un large éventail de fonctionnalités de personnalisation et de confidentialité telles que le support de Windows Hello, un filtre de confidentialité et des fonctionnalités d'export.</p>
+<p style="font-size:15px;">Protecc est un client d'authentification F2A TOTP pour Windows, moderne et open source, doté d'un large éventail de fonctionnalités de personnalisation et de confidentialité telles que le support de Windows Hello, un filtre de confidentialité et des fonctionnalités d'export.</p>
 </div>
 
 
