@@ -11,30 +11,28 @@
 <a href="https://github.com/FireCubeStudios/Protecc/fork"><img src="https://img.shields.io/github/forks/FireCubeStudios/Protecc"></a>
 <a href="https://github.com/FireCubeStudios/Protecc/stargazers/"><img src="https://img.shields.io/github/stars/FireCubeStudios/Protecc"></a>
 
-**English** | [Simplified Chinese(简体中文)](https://github.com/FireCubeStudios/Protecc/blob/master/Readme/README.zh-CN.md) | [Русский](https://github.com/FireCubeStudios/Protecc/blob/master/Readme/README.ru-RU.md) | [Deutsch](https://github.com/BootVirtual/Protecc/blob/master/Readme/Readme_German.md) | [Español](https://github.com/BootVirtual/Protecc/blob/master/Readme/README_Spanish.md) | [हिन्दी](https://github.com/BootVirtual/Protecc/blob/master/Readme/readme_hindi.md) | [ਪੰਜਾਬੀ](https://github.com/FireCubeStudios/Protecc/blob/master/Readme/readme_Punjabi.md) | More languages at *Readme* folder...
-
-<p style="font-size:15px;">Protecc is a modern open source 2FA TOTP code authenticator client for Windows with a wide range of customization and privacy features such as Windows Hello support, privacy filter and export.</p>
+<p style="font-size:15px;">Protecc adalah sebuah client pengautentikasi kode 2FA TOTP open source yang modern yang ditujukan untuk Windows dengan banyak kustomisasi dan fitur privasi seperti dukungan Windows Hello, filter dan ekspor privasi.</p>
 </div>
 
 
-# Preview ✨
+# Pratinjau ✨
 
 <p align="center">
   <img align="center" src="https://store-images.s-microsoft.com/image/apps.36005.14273821654312693.614a2153-2264-4640-872a-02a2690944dd.0647a0bf-af72-4d44-b0c9-7e097abaa082">
   </p>
 
 
-<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="Assets\Get_it_from_Microsoft_Badge.svg" alt="Get Protecc from Microsoft Store"></a>
-  
+<a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="..\Assets\Get_it_from_Microsoft_Badge.svg" alt="Get Protecc from Microsoft Store"></a>
+
 https://github.com/kspearrin/Otp.NET
   
-  ### Building notes
-  - If you get an error of certificate not found go open Package Manifest > Certificates and generate your own new one
+  ### Catatan instalasi
+  - Jika kamu mendapat error sertifikat tidak ditemukan, silakan buka Package Manifest > Certificates dan buat sendiri yang baru
 
 ## Discord
-- Join our [Discord Channel](https://discord.gg/87qnqRB)
+- Bergabung ke [Discord Channel](https://discord.gg/87qnqRB) kami
 
-# Meet our contributors
+# Temui kontributor kami
 
 <a href="https://github.com/FireCubeStudios/Protecc/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=FireCubeStudios/Protecc" />
@@ -44,7 +42,7 @@ https://github.com/kspearrin/Otp.NET
 <hr>
 <h6 align="center">© Fire Cube Studios. 2022 
 <br>
-All Rights Reserved</h6>
+Semua Hak Cipta Dilindungi</h6>
 <p align="center">
 	<a href="https://github.com/FireCubeStudios/Protecc/blob/master/LICENSE.txt"><img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=d9e0ee&colorA=363a4f&colorB=b7bdf8"/></a>
 </p>

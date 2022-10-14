@@ -6,10 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls" 
-    xmlns:icons="using:Fluent.Icons" 
+    xmlns:icons="using:Fluent.Icons"
     xmlns:Helpers="using:Protecc.Helpers"
-    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media" 
-    xmlns:tbfx="using:TextBlockFX.Win2D.UWP" 
+    xmlns:media="using:Microsoft.Toolkit.Uwp.UI.Media"
+    xmlns:tbfx="using:TextBlockFX.Win2D.UWP"
     xmlns:effects="using:TextBlockFX.Win2D.UWP.Effects" 
     xmlns:ani="using:Microsoft.Toolkit.Uwp.UI.Animations"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
@@ -22,9 +22,9 @@
             <TextBlock MaxWidth="210" Opacity="0.7" TextTrimming="CharacterEllipsis" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1" Text="{x:Bind AccountVaultItem.Name, Mode=OneWay}"/>
             <Grid HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="200" Height="80" Margin="0, 0, 0, -20" >
                 <tbfx:TextBlockFX x:Name="AnimatedCodeBlock" Canvas.ZIndex="2" x:Load="True" Loaded="CodeBlock_Loaded" Text="{x:Bind TOTP.Code, Mode=OneWay}" Foreground="{ThemeResource HvidSortBrush}" FontSize="32" FontWeight="SemiBold">
-                        <tbfx:TextBlockFX.TextEffect>
-                            <effects:MotionBlur/>
-                        </tbfx:TextBlockFX.TextEffect>
+                    <tbfx:TextBlockFX.TextEffect>
+                        <effects:MotionBlur />
+                    </tbfx:TextBlockFX.TextEffect>
                 </tbfx:TextBlockFX>
                 <TextBlock x:Name="CodeBlock" VerticalAlignment="Center" Canvas.ZIndex="1" x:Load="False" Text="{x:Bind TOTP.Code, Mode=OneWay}" Foreground="{ThemeResource HvidSortBrush}" FontSize="32" FontWeight="SemiBold"/>
                 <Grid x:Name="Filter" x:Load="{x:Bind Helpers:UIHelper.NullBoolToBool(PrivacyButton.IsChecked), Mode=OneWay}" Canvas.ZIndex="4" CornerRadius="4" ui:VisualExtensions.NormalizedCenterPoint="0.5" Background="{ThemeResource MicaBrush}">
@@ -49,11 +49,40 @@
         </Grid>
         <Grid Height="40" Padding="4" Background="{ThemeResource LayerFillColorDefaultBrush}">
             <StackPanel Orientation="Horizontal">
-                <ToggleButton x:Name="PrivacyButton" Style="{ThemeResource ExperimentalToolbarToggleButton}" Width="44" Height="32">
-                    <icons:FluentSymbolIcon Margin="0, 0, 1, 0" Symbol="{x:Bind Helpers:UIHelper.PrivacyToIcon(PrivacyButton.IsChecked), Mode=OneWay}" Foreground="{ThemeResource HvidSortBrush}"/>
+                <!--  Edit account  -->
+                <Button
+                    x:Name="EditButton"
+                    Width="44"
+                    Height="32"
+                    Click="EditAccount_Click"
+                    Style="{ThemeResource ToolbarButton}">
+                    <icons:FluentSymbolIcon
+                        Margin="0,0,1,0"
+                        Foreground="{ThemeResource HvidSortBrush}"
+                        Symbol="Edit20" />
+                </Button>
+                <!--  Switch privacy filter  -->
+                <ToggleButton
+                    x:Name="PrivacyButton"
+                    Width="44"
+                    Height="32"
+                    Style="{ThemeResource ExperimentalToolbarToggleButton}">
+                    <icons:FluentSymbolIcon
+                        Margin="0,0,1,0"
+                        Foreground="{ThemeResource HvidSortBrush}"
+                        Symbol="{x:Bind Helpers:UIHelper.PrivacyToIcon(PrivacyButton.IsChecked), Mode=OneWay}" />
                 </ToggleButton>
-                <Button Click="Copy_Click" Style="{ThemeResource ToolbarButton}" HorizontalAlignment="Right" Width="44" Height="32">
-                    <icons:FluentSymbolIcon x:Name='CopyIcon' Symbol="Copy20" Margin="0, 0, 1, 0"/>
+                <!--  Copy button  -->
+                <Button
+                    Width="44"
+                    Height="32"
+                    HorizontalAlignment="Right"
+                    Click="Copy_Click"
+                    Style="{ThemeResource ToolbarButton}">
+                    <icons:FluentSymbolIcon
+                        x:Name="CopyIcon"
+                        Margin="0,0,1,0"
+                        Symbol="Copy20" />
                 </Button>
             </StackPanel>
             <Button Click="Delete_Click" Style="{ThemeResource ExperimentalToolbarButton}" HorizontalAlignment="Right" Width="44" Height="32">

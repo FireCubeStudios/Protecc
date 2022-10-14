@@ -151,5 +151,14 @@ namespace Protecc.Controls
                 InAppNotificationComponent.Show("An error occurred while copying to clipboard.", 3000);
             }
         }
+
+        /// <summary>
+        /// Opens Edit Account page.
+        /// </summary>
+        private void EditAccount_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(EditAccountPage), AccountVaultItem);
+        }
     }
 }
