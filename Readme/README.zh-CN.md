@@ -11,9 +11,11 @@
 <a href="https://github.com/FireCubeStudios/Protecc/fork"><img src="https://img.shields.io/github/forks/FireCubeStudios/Protecc"></a>
 <a href="https://github.com/FireCubeStudios/Protecc/stargazers/"><img src="https://img.shields.io/github/stars/FireCubeStudios/Protecc"></a>
 
-[English](README.md) | **Simplified Chinese(简体中文)**
+[English](https://github.com/FireCubeStudios/Protecc) | **Simplified Chinese(简体中文)**
 
-<p style="font-size:15px;">Protecc 是一个在 Windows 上的开源两步验证器。支持几乎所有使用 TOTP 算法的账号，还有一些内置的隐私保护措施，例如隐私屏障和代码模糊。</p>
+<p style="font-size:15px;">Protecc，Windows 平台上的两步验证器。支持几乎所有使用 TOTP 算法的账号。
+
+还有一些内置隐私保护措施，如隐私屏障与代码模糊。</p>
 </div>
 
 
@@ -25,18 +27,20 @@
 
 <a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="https://raw.githubusercontent.com/PeritusDeveloper/Protecc/51091b1b131adbfd5edb51f1040cc3fcc470a248/Assets/Get_it_from_Microsoft_Badge.svg"></a>
 
+从[微软商店](https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS)或 [Releases](https://github.com/FireCubeStudios/Protecc/releases) 获取 Protecc。
+
 使用了 [kspearrin / Otp.NET](https://github.com/kspearrin/Otp.NET) 的代码。
   
   ### 构建说明
   - 如果有未找到证书的错误，打开 Package Manifest > Certificates 生成自己的证书。
 
-# 贡献者
+# 贡献者 🥰
 
 <a href="https://github.com/FireCubeStudios/Protecc/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=FireCubeStudios/Protecc" />
 </a>
 
-# 许可证
+# 许可证 📄
 
 使用 [MIT LICENSE](LICENSE.txt) 许可证。
 

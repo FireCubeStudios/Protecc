@@ -26,6 +26,9 @@
 
 <a href="https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS"><img width="35%" src="Assets\Get_it_from_Microsoft_Badge.svg" alt="Get Protecc from Microsoft Store"></a>
   
+Get Protecc on [Microsoft Store](https://apps.microsoft.com/store/detail/protecc-2fa-client/9PJX91M06TZS) or [Releases](https://github.com/FireCubeStudios/Protecc/releases).
+
+
 https://github.com/kspearrin/Otp.NET
   
   ### Building notes
