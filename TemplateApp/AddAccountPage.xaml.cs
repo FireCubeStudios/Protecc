@@ -3,6 +3,7 @@ using OtpNet;
 using Protecc.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -87,6 +88,42 @@ namespace Protecc
             rootFrame.Navigate(typeof(MainPage));
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e) => KeyBox.Password = e.Parameter as string;
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter.GetType() == typeof(string))
+            {
+                KeyBox.Password = e.Parameter as string;
+            }
+            else if (e.Parameter.GetType() == typeof(Uri))
+            {
+                Uri uri = e.Parameter as Uri;
+                // NameBox.Text = Uri.UnescapeDataString(uri.Segments[1].Split(':').Length > 1 ? uri.Segments[1].Split(':')[1] : uri.Segments[1]); // Issuer
+                NameBox.Text = Uri.UnescapeDataString(uri.Segments[1].Split(':').Length > 1 ? uri.Segments[1].Split(':')[0] : uri.Segments[1]);
+                NameValueCollection queryDictionary = System.Web.HttpUtility.ParseQueryString(uri.Query);
+                if (queryDictionary["secret"] != null)
+                {
+                    KeyBox.Password = queryDictionary["secret"];
+                }
+                if (queryDictionary["algorithm"] != null)
+                {
+                    if (queryDictionary["algorithm"] == "SHA1")
+                        EncryptionMode.SelectedIndex = 0;
+                    else if (queryDictionary["algorithm"] == "SHA256")
+                        EncryptionMode.SelectedIndex = 1;
+                    else if (queryDictionary["algorithm"] == "SHA512")
+                        EncryptionMode.SelectedIndex = 2;
+                    else
+                        EncryptionMode.SelectedIndex = 0;
+                }
+                if (queryDictionary["digits"] != null)
+                {
+                    DigitOptions.SelectedIndex = queryDictionary["digits"] == "6" ? 0 : 1;
+                }
+                if (queryDictionary["period"] != null)
+                {
+                    TimeOptions.SelectedIndex = queryDictionary["period"] == "30" ? 0 : 1;
+                }
+            }
+        }
     }
 }
