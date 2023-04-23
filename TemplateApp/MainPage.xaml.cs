@@ -156,38 +156,16 @@ namespace Protecc
             return res;
         }
 
-        public async Task<string> DecodeFromFile(StorageFile file)
-        {
-            var fileProperties = await file.GetBasicPropertiesAsync();
-            if (fileProperties.Size == 0)
-            {
-                return null;
-            }
-
-            SoftwareBitmap softwareBitmap;
-
-            using (IRandomAccessStream stream = await file.OpenAsync(FileAccessMode.Read))
-            {
-                // Create the decoder from the stream
-                BitmapDecoder decoder = await BitmapDecoder.CreateAsync(stream);
-
-                // Get the SoftwareBitmap representation of the file
-                softwareBitmap = await decoder.GetSoftwareBitmapAsync();
-            }
-            return DecodeBitmap(softwareBitmap).ToString();
-        }
         public string DecodeBitmap(SoftwareBitmap bitmap)
         {
             var decoded = reader.Decode(bitmap);
-            if (decoded == null)
+            if (decoded != null)
             {
-                string? result = null;
-                return result;
+                return decoded.Text;
             }
             else
             {
-                var result = decoded.Text;
-                return result;
+                return null;
             }
         }
         public async void Create(string key)
