@@ -107,73 +107,15 @@ namespace Protecc
                     AccountsView.Visibility = Visibility.Visible;
                     CapturingText.Visibility = Visibility.Collapsed;
                     await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
-                    Create(await DecodeFromClipboard());
+                    Create(await TOTPUriHelper.GetFromClipboard());
                 }
             }
         }
-        public async Task<string> DecodeFromClipboard()
-        {
-            string res = null;
-            try
-            {
-                DataPackageView dataPackageView = Clipboard.GetContent();
-                if (dataPackageView.Contains(StandardDataFormats.Bitmap))
-                {
-                    IRandomAccessStreamReference imageReceived = null;
-                    try
-                    {
-                        imageReceived = await dataPackageView.GetBitmapAsync();
-                    }
-                    catch (Exception ex)
-                    {
-                    }
-                    finally
-                    {
-                        try
-                        {
-                            if (imageReceived != null)
-                            {
-                                using IRandomAccessStreamWithContentType imageStream = await imageReceived.OpenReadAsync();
-                                BitmapDecoder bitmapDecoder = await BitmapDecoder.CreateAsync(imageStream);
-                                SoftwareBitmap softwareBitmap = await bitmapDecoder.GetSoftwareBitmapAsync();
-
-                                res = DecodeBitmap(softwareBitmap);
-                            }
-                            else
-                            {
-                            }
-                        }
-                        catch (Exception exc)
-                        {
-                        }
-
-                    }
-                }
-            }
-            catch (Exception exc)
-            {
-            }
-            return res;
-        }
-
-        public string DecodeBitmap(SoftwareBitmap bitmap)
-        {
-            var decoded = reader.Decode(bitmap);
-            if (decoded != null)
-            {
-                return decoded.Text;
-            }
-            else
-            {
-                return null;
-            }
-        }
-        public async void Create(string key)
+        public async void Create(TOTPClass OTP)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             try
             {
-                TOTPClass OTP = new(key);
                 await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
                     rootFrame.Navigate(typeof(AddAccountPage), OTP);

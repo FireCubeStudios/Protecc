@@ -152,6 +152,7 @@
     <Compile Include="Helpers\DataHelper.cs" />
     <Compile Include="Helpers\ExportHelper.cs" />
     <Compile Include="Helpers\TOTPHelper.cs" />
+    <Compile Include="Helpers\TOTPUriHelper.cs" />
     <Compile Include="OOBEPage.xaml.cs">
       <DependentUpon>OOBEPage.xaml</DependentUpon>
     </Compile>

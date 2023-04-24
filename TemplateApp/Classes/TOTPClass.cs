@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Protecc.Classes
 {
-    internal class TOTPClass
+    public class TOTPClass
     {
         private readonly string _Secret;
         private readonly string _Account;
