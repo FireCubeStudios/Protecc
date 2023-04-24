@@ -40,7 +40,6 @@ namespace Protecc
     public sealed partial class MainPage : Page
     {
         public SettingsClass Settings = new();
-        private readonly BarcodeReader reader = new();
         private bool isSnippingToolOpened = false;
 
         public MainPage()
