@@ -98,7 +98,7 @@ namespace Protecc
             else if (e.Parameter.GetType() == typeof(TOTPClass))
             {
                 TOTPClass OTP = e.Parameter as TOTPClass;
-                NameBox.Text = OTP.Issuer;
+                NameBox.Text = OTP.Issuer ?? OTP.Account;
                 KeyBox.Password = OTP.Secret;
                 EncryptionMode.SelectedIndex = (int)OTP.Algorithm;
                 DigitOptions.SelectedIndex = OTP.Secret == "6" ? 0 : 1;
