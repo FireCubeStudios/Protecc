@@ -173,18 +173,11 @@ namespace Protecc
             Frame rootFrame = Window.Current.Content as Frame;
             try
             {
-                Uri uri = new(key);
-                if (uri.Host == "totp")
+                TOTPClass OTP = new(key);
+                await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
                 {
-                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-                    {
-                        rootFrame.Navigate(typeof(AddAccountPage), uri);
-                    });
-                }
-                else
-                {
-                    // TODO add error: invalid QR code
-                }
+                    rootFrame.Navigate(typeof(AddAccountPage), OTP);
+                });
             }
             catch
             {

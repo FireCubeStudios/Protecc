@@ -1,5 +1,6 @@
 ﻿using CubeKit.UI.Services;
 using OtpNet;
+using Protecc.Classes;
 using Protecc.Services;
 using System;
 using System.Collections.Generic;
@@ -47,8 +48,8 @@ namespace Protecc
                 NameBox.Focus(FocusState.Programmatic);
                 NameLoadAnimation.Start();
             }
-            else if(String.IsNullOrEmpty(KeyBox.Password) || String.IsNullOrWhiteSpace(KeyBox.Password) || KeyBox.Password.Length < 2)
-            { 
+            else if (String.IsNullOrEmpty(KeyBox.Password) || String.IsNullOrWhiteSpace(KeyBox.Password) || KeyBox.Password.Length < 2)
+            {
                 KeyBox.Foreground = RedLinearGradientBrush;
                 KeyBox.Focus(FocusState.Programmatic);
                 PasswordLoadAnimation.Start();
@@ -94,35 +95,14 @@ namespace Protecc
             {
                 KeyBox.Password = e.Parameter as string;
             }
-            else if (e.Parameter.GetType() == typeof(Uri))
+            else if (e.Parameter.GetType() == typeof(TOTPClass))
             {
-                Uri uri = e.Parameter as Uri;
-                // NameBox.Text = Uri.UnescapeDataString(uri.Segments[1].Split(':').Length > 1 ? uri.Segments[1].Split(':')[1] : uri.Segments[1]); // Issuer
-                NameBox.Text = Uri.UnescapeDataString(uri.Segments[1].Split(':').Length > 1 ? uri.Segments[1].Split(':')[0] : uri.Segments[1]);
-                NameValueCollection queryDictionary = System.Web.HttpUtility.ParseQueryString(uri.Query);
-                if (queryDictionary["secret"] != null)
-                {
-                    KeyBox.Password = queryDictionary["secret"];
-                }
-                if (queryDictionary["algorithm"] != null)
-                {
-                    if (queryDictionary["algorithm"] == "SHA1")
-                        EncryptionMode.SelectedIndex = 0;
-                    else if (queryDictionary["algorithm"] == "SHA256")
-                        EncryptionMode.SelectedIndex = 1;
-                    else if (queryDictionary["algorithm"] == "SHA512")
-                        EncryptionMode.SelectedIndex = 2;
-                    else
-                        EncryptionMode.SelectedIndex = 0;
-                }
-                if (queryDictionary["digits"] != null)
-                {
-                    DigitOptions.SelectedIndex = queryDictionary["digits"] == "6" ? 0 : 1;
-                }
-                if (queryDictionary["period"] != null)
-                {
-                    TimeOptions.SelectedIndex = queryDictionary["period"] == "30" ? 0 : 1;
-                }
+                TOTPClass OTP = e.Parameter as TOTPClass;
+                NameBox.Text = OTP.Issuer;
+                KeyBox.Password = OTP.Secret;
+                EncryptionMode.SelectedIndex = (int)OTP.Algorithm;
+                DigitOptions.SelectedIndex = OTP.Secret == "6" ? 0 : 1;
+                TimeOptions.SelectedIndex = OTP.Secret == "30" ? 0 : 1;
             }
         }
     }

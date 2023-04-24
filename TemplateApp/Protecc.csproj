@@ -134,6 +134,7 @@
     </Compile>
     <Compile Include="Classes\Account.cs" />
     <Compile Include="Classes\SettingsClass.cs" />
+    <Compile Include="Classes\TOTPClass.cs" />
     <Compile Include="Classes\VaultItem.cs" />
     <Compile Include="Controls\AccountControl.xaml.cs">
       <DependentUpon>AccountControl.xaml</DependentUpon>
