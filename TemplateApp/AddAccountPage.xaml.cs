@@ -101,8 +101,8 @@ namespace Protecc
                 NameBox.Text = OTP.Issuer ?? OTP.Account;
                 KeyBox.Password = OTP.Secret;
                 EncryptionMode.SelectedIndex = (int)OTP.Algorithm;
-                DigitOptions.SelectedIndex = OTP.Secret == "6" ? 0 : 1;
-                TimeOptions.SelectedIndex = OTP.Secret == "30" ? 0 : 1;
+                DigitOptions.SelectedIndex = OTP.Digits == 6 ? 0 : 1;
+                TimeOptions.SelectedIndex = OTP.Period == 30 ? 0 : 1;
             }
         }
     }
