@@ -1,8 +1,10 @@
 ﻿using CubeKit.UI.Services;
 using OtpNet;
+using Protecc.Classes;
 using Protecc.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -46,8 +48,8 @@ namespace Protecc
                 NameBox.Focus(FocusState.Programmatic);
                 NameLoadAnimation.Start();
             }
-            else if(String.IsNullOrEmpty(KeyBox.Password) || String.IsNullOrWhiteSpace(KeyBox.Password) || KeyBox.Password.Length < 2)
-            { 
+            else if (String.IsNullOrEmpty(KeyBox.Password) || String.IsNullOrWhiteSpace(KeyBox.Password) || KeyBox.Password.Length < 2)
+            {
                 KeyBox.Foreground = RedLinearGradientBrush;
                 KeyBox.Focus(FocusState.Programmatic);
                 PasswordLoadAnimation.Start();
@@ -87,6 +89,21 @@ namespace Protecc
             rootFrame.Navigate(typeof(MainPage));
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e) => KeyBox.Password = e.Parameter as string;
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter.GetType() == typeof(string))
+            {
+                KeyBox.Password = e.Parameter as string;
+            }
+            else if (e.Parameter.GetType() == typeof(TOTPClass))
+            {
+                TOTPClass OTP = e.Parameter as TOTPClass;
+                NameBox.Text = OTP.Issuer ?? OTP.Account;
+                KeyBox.Password = OTP.Secret;
+                EncryptionMode.SelectedIndex = (int)OTP.Algorithm;
+                DigitOptions.SelectedIndex = OTP.Digits == 6 ? 0 : 1;
+                TimeOptions.SelectedIndex = OTP.Period == 30 ? 0 : 1;
+            }
+        }
     }
 }

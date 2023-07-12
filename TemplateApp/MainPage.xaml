@@ -58,7 +58,10 @@
                         </StackPanel>
                         <Button.Flyout>
                             <MenuFlyout Placement="Bottom">
-                                <MenuFlyoutItem Text="Scan QR" Click="ScanQR_Click"/>
+                                <MenuFlyoutSubItem Text="Scan QR">
+                                    <MenuFlyoutItem Text="From Camera" Click="ScanQR_Click"/>
+                                    <MenuFlyoutItem Text="From Screen" Click="FromScreen_Click"/>
+                                </MenuFlyoutSubItem>
                                 <MenuFlyoutItem Text="Enter Key" Click="EnterKey_Click"/>
                             </MenuFlyout>
                         </Button.Flyout>
@@ -80,6 +83,7 @@
                     </Button>
                 </StackPanel>
             </Grid>
+            <TextBlock x:Name="CapturingText" Text="Capture the QR Code on the screen" Margin="0, 32, 0, 0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="SemiBold" Visibility="Collapsed"/>
             <GridView x:Name="AccountsView" ItemContainerStyle="{ThemeResource CardContainer}" SelectionChanged="AccountsView_SelectionChanged" ItemsSource="{x:Bind Services:CredentialService.CredentialList, Mode=OneWay}" SelectionMode="Single" VerticalAlignment="Top" Margin="-8, 86, -50, 0" HorizontalAlignment="Left">
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="Classes:VaultItem">
