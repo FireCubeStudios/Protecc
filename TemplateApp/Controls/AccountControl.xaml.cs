@@ -62,7 +62,7 @@ namespace Protecc.Controls
             this.InitializeComponent();
             if (CredentialService.CredentialList.Count > 10) // Disable animated textbox for performance
             {
-                UnloadObject(AnimatedCodeBlock);
+                // UnloadObject(AnimatedCodeBlock);
                 FindName("CodeBlock");
             }
             Bindings.Update();

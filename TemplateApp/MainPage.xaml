@@ -63,6 +63,7 @@
                                     <MenuFlyoutItem Text="From Screen" Click="FromScreen_Click"/>
                                 </MenuFlyoutSubItem>
                                 <MenuFlyoutItem Text="Enter Key" Click="EnterKey_Click"/>
+                                <MenuFlyoutItem Text="Import" Click="Import_Click"/>
                             </MenuFlyout>
                         </Button.Flyout>
                     </Button>
