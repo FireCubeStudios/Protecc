@@ -55,6 +55,12 @@ namespace Protecc
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(AddAccountPage), "");
         }
+        
+        private void Import_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(ImportAccountPage), "");
+        }
 
         private void ScanQR_Click(object sender, RoutedEventArgs e)
         {
